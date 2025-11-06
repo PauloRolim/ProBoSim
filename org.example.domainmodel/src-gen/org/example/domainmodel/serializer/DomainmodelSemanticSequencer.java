@@ -11,17 +11,11 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.example.domainmodel.domainmodel.DataType;
-import org.example.domainmodel.domainmodel.Domainmodel;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
-import org.example.domainmodel.domainmodel.Entity;
-import org.example.domainmodel.domainmodel.Feature;
-import org.example.domainmodel.domainmodel.Import;
-import org.example.domainmodel.domainmodel.PackageDeclaration;
-import org.example.domainmodel.domainmodel.Variables;
+import org.example.domainmodel.domainmodel.Model;
+import org.example.domainmodel.domainmodel.Value;
+import org.example.domainmodel.domainmodel.Variable;
 import org.example.domainmodel.services.DomainmodelGrammarAccess;
 
 @SuppressWarnings("all")
@@ -38,26 +32,14 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DomainmodelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case DomainmodelPackage.DATA_TYPE:
-				sequence_DataType(context, (DataType) semanticObject); 
+			case DomainmodelPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case DomainmodelPackage.DOMAINMODEL:
-				sequence_Domainmodel(context, (Domainmodel) semanticObject); 
+			case DomainmodelPackage.VALUE:
+				sequence_Value(context, (Value) semanticObject); 
 				return; 
-			case DomainmodelPackage.ENTITY:
-				sequence_Entity(context, (Entity) semanticObject); 
-				return; 
-			case DomainmodelPackage.FEATURE:
-				sequence_Feature(context, (Feature) semanticObject); 
-				return; 
-			case DomainmodelPackage.IMPORT:
-				sequence_Import(context, (Import) semanticObject); 
-				return; 
-			case DomainmodelPackage.PACKAGE_DECLARATION:
-				sequence_PackageDeclaration(context, (PackageDeclaration) semanticObject); 
-				return; 
-			case DomainmodelPackage.VARIABLES:
-				sequence_Variables(context, (Variables) semanticObject); 
+			case DomainmodelPackage.VARIABLE:
+				sequence_Variable(context, (Variable) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -66,109 +48,37 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns DataType
-	 *     Type returns DataType
-	 *     DataType returns DataType
+	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID variables+=Variable*)
 	 */
-	protected void sequence_DataType(ISerializationContext context, DataType semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.TYPE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDataTypeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Domainmodel returns Domainmodel
-	 *
-	 * Constraint:
-	 *     (elements+=AbstractElement | variables+=Variables)+
-	 */
-	protected void sequence_Domainmodel(ISerializationContext context, Domainmodel semanticObject) {
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Entity
-	 *     Type returns Entity
-	 *     Entity returns Entity
+	 *     Value returns Value
 	 *
 	 * Constraint:
-	 *     (name=ID superType=[Entity|QualifiedName]? features+=Feature*)
+	 *     (value='NAT' | value='INT' | value='REAL' | value='true' | value='false')
 	 */
-	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
+	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Feature returns Feature
+	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (many?='many'? name=ID type=[Type|QualifiedName])
+	 *     (name=ID type=DataType initialValue=Value?)
 	 */
-	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
+	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbstractElement returns Import
-	 *     Import returns Import
-	 *
-	 * Constraint:
-	 *     importedNamespace=QualifiedNameWithWildcard
-	 */
-	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PackageDeclaration returns PackageDeclaration
-	 *     AbstractElement returns PackageDeclaration
-	 *
-	 * Constraint:
-	 *     (name=QualifiedName elements+=AbstractElement*)
-	 */
-	protected void sequence_PackageDeclaration(ISerializationContext context, PackageDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Variables returns Variables
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Variables(ISerializationContext context, Variables semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.VARIABLES__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.VARIABLES__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVariablesAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	

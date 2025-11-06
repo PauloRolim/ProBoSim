@@ -7,20 +7,24 @@ import com.google.inject.Inject;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.example.domainmodel.domainmodel.Domainmodel;
 
 /* @ExtendWith(InjectionExtension.class) */@InjectWith(DomainmodelInjectorProvider.class)
 @SuppressWarnings("all")
 public class DomainmodelParsingTest {
   @Inject
-  private ParseHelper<Domainmodel> parseHelper;
+  private /* ParseHelper<Domainmodel> */Object parseHelper;
   
   /* @Test
    */public void loadModel() {
     throw new Error("Unresolved compilation problems:"
       + "\nThe method or field Assertions is undefined"
       + "\nThe method or field Assertions is undefined"
+      + "\nThe field DomainmodelParsingTest.parseHelper refers to the missing type Domainmodel"
       + "\nassertNotNull cannot be resolved"
-      + "\nassertTrue cannot be resolved");
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\nassertTrue cannot be resolved"
+      + "\nisEmpty cannot be resolved"
+      + "\njoin cannot be resolved");
   }
 }

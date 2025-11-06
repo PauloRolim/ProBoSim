@@ -5,22 +5,18 @@ package org.example.domainmodel.domainmodel.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.example.domainmodel.domainmodel.AbstractElement;
 import org.example.domainmodel.domainmodel.DataType;
-import org.example.domainmodel.domainmodel.Domainmodel;
 import org.example.domainmodel.domainmodel.DomainmodelFactory;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
-import org.example.domainmodel.domainmodel.Entity;
-import org.example.domainmodel.domainmodel.Feature;
-import org.example.domainmodel.domainmodel.Import;
-import org.example.domainmodel.domainmodel.PackageDeclaration;
-import org.example.domainmodel.domainmodel.Type;
-import org.example.domainmodel.domainmodel.Variables;
+import org.example.domainmodel.domainmodel.Model;
+import org.example.domainmodel.domainmodel.Value;
+import org.example.domainmodel.domainmodel.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,63 +31,28 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass domainmodelEClass = null;
+  private EClass modelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass packageDeclarationEClass = null;
+  private EClass variableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractElementEClass = null;
+  private EClass valueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variablesEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass importEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass typeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dataTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass entityEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass featureEClass = null;
+  private EEnum dataTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -161,9 +122,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getDomainmodel()
+  public EClass getModel()
   {
-    return domainmodelEClass;
+    return modelEClass;
   }
 
   /**
@@ -172,9 +133,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getDomainmodel_Elements()
+  public EAttribute getModel_Name()
   {
-    return (EReference)domainmodelEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -183,9 +144,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getDomainmodel_Variables()
+  public EReference getModel_Variables()
   {
-    return (EReference)domainmodelEClass.getEStructuralFeatures().get(1);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -194,9 +155,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getPackageDeclaration()
+  public EClass getVariable()
   {
-    return packageDeclarationEClass;
+    return variableEClass;
   }
 
   /**
@@ -205,9 +166,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getPackageDeclaration_Name()
+  public EAttribute getVariable_Name()
   {
-    return (EAttribute)packageDeclarationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -216,9 +177,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getPackageDeclaration_Elements()
+  public EAttribute getVariable_Type()
   {
-    return (EReference)packageDeclarationEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -227,9 +188,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getAbstractElement()
+  public EReference getVariable_InitialValue()
   {
-    return abstractElementEClass;
+    return (EReference)variableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -238,9 +199,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getVariables()
+  public EClass getValue()
   {
-    return variablesEClass;
+    return valueEClass;
   }
 
   /**
@@ -249,9 +210,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getVariables_Name()
+  public EAttribute getValue_Value()
   {
-    return (EAttribute)variablesEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -260,130 +221,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getImport()
+  public EEnum getDataType()
   {
-    return importEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getImport_ImportedNamespace()
-  {
-    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getType()
-  {
-    return typeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getType_Name()
-  {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDataType()
-  {
-    return dataTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getEntity()
-  {
-    return entityEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEntity_SuperType()
-  {
-    return (EReference)entityEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getEntity_Features()
-  {
-    return (EReference)entityEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getFeature()
-  {
-    return featureEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getFeature_Many()
-  {
-    return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getFeature_Name()
-  {
-    return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getFeature_Type()
-  {
-    return (EReference)featureEClass.getEStructuralFeatures().get(2);
+    return dataTypeEEnum;
   }
 
   /**
@@ -417,35 +257,20 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     isCreated = true;
 
     // Create classes and their features
-    domainmodelEClass = createEClass(DOMAINMODEL);
-    createEReference(domainmodelEClass, DOMAINMODEL__ELEMENTS);
-    createEReference(domainmodelEClass, DOMAINMODEL__VARIABLES);
+    modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__NAME);
+    createEReference(modelEClass, MODEL__VARIABLES);
 
-    packageDeclarationEClass = createEClass(PACKAGE_DECLARATION);
-    createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__NAME);
-    createEReference(packageDeclarationEClass, PACKAGE_DECLARATION__ELEMENTS);
+    variableEClass = createEClass(VARIABLE);
+    createEAttribute(variableEClass, VARIABLE__NAME);
+    createEAttribute(variableEClass, VARIABLE__TYPE);
+    createEReference(variableEClass, VARIABLE__INITIAL_VALUE);
 
-    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+    valueEClass = createEClass(VALUE);
+    createEAttribute(valueEClass, VALUE__VALUE);
 
-    variablesEClass = createEClass(VARIABLES);
-    createEAttribute(variablesEClass, VARIABLES__NAME);
-
-    importEClass = createEClass(IMPORT);
-    createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
-
-    typeEClass = createEClass(TYPE);
-    createEAttribute(typeEClass, TYPE__NAME);
-
-    dataTypeEClass = createEClass(DATA_TYPE);
-
-    entityEClass = createEClass(ENTITY);
-    createEReference(entityEClass, ENTITY__SUPER_TYPE);
-    createEReference(entityEClass, ENTITY__FEATURES);
-
-    featureEClass = createEClass(FEATURE);
-    createEAttribute(featureEClass, FEATURE__MANY);
-    createEAttribute(featureEClass, FEATURE__NAME);
-    createEReference(featureEClass, FEATURE__TYPE);
+    // Create enums
+    dataTypeEEnum = createEEnum(DATA_TYPE);
   }
 
   /**
@@ -477,42 +302,26 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    packageDeclarationEClass.getESuperTypes().add(this.getAbstractElement());
-    importEClass.getESuperTypes().add(this.getAbstractElement());
-    typeEClass.getESuperTypes().add(this.getAbstractElement());
-    dataTypeEClass.getESuperTypes().add(this.getType());
-    entityEClass.getESuperTypes().add(this.getType());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(domainmodelEClass, Domainmodel.class, "Domainmodel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomainmodel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDomainmodel_Variables(), this.getVariables(), null, "variables", null, 0, -1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Variables(), this.getVariable(), null, "variables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(packageDeclarationEClass, PackageDeclaration.class, "PackageDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPackageDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageDeclaration_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_Type(), this.getDataType(), "type", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_InitialValue(), this.getValue(), null, "initialValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variablesEClass, Variables.class, "Variables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariables_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntity_Features(), this.getFeature(), null, "features", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFeature_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_Type(), this.getType(), null, "type", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    // Initialize enums and add enum literals
+    initEEnum(dataTypeEEnum, DataType.class, "DataType");
+    addEEnumLiteral(dataTypeEEnum, DataType.NAT);
+    addEEnumLiteral(dataTypeEEnum, DataType.INT);
+    addEEnumLiteral(dataTypeEEnum, DataType.REAL);
+    addEEnumLiteral(dataTypeEEnum, DataType.BOOL);
 
     // Create resource
     createResource(eNS_URI);

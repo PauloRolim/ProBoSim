@@ -4,6 +4,7 @@
 package org.example.domainmodel.domainmodel.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,15 +66,9 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
   {
     switch (eClass.getClassifierID())
     {
-      case DomainmodelPackage.DOMAINMODEL: return createDomainmodel();
-      case DomainmodelPackage.PACKAGE_DECLARATION: return createPackageDeclaration();
-      case DomainmodelPackage.ABSTRACT_ELEMENT: return createAbstractElement();
-      case DomainmodelPackage.VARIABLES: return createVariables();
-      case DomainmodelPackage.IMPORT: return createImport();
-      case DomainmodelPackage.TYPE: return createType();
-      case DomainmodelPackage.DATA_TYPE: return createDataType();
-      case DomainmodelPackage.ENTITY: return createEntity();
-      case DomainmodelPackage.FEATURE: return createFeature();
+      case DomainmodelPackage.MODEL: return createModel();
+      case DomainmodelPackage.VARIABLE: return createVariable();
+      case DomainmodelPackage.VALUE: return createValue();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -85,10 +80,15 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Domainmodel createDomainmodel()
+  public Object createFromString(EDataType eDataType, String initialValue)
   {
-    DomainmodelImpl domainmodel = new DomainmodelImpl();
-    return domainmodel;
+    switch (eDataType.getClassifierID())
+    {
+      case DomainmodelPackage.DATA_TYPE:
+        return createDataTypeFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
   }
 
   /**
@@ -97,10 +97,15 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public PackageDeclaration createPackageDeclaration()
+  public String convertToString(EDataType eDataType, Object instanceValue)
   {
-    PackageDeclarationImpl packageDeclaration = new PackageDeclarationImpl();
-    return packageDeclaration;
+    switch (eDataType.getClassifierID())
+    {
+      case DomainmodelPackage.DATA_TYPE:
+        return convertDataTypeToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
   }
 
   /**
@@ -109,10 +114,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public AbstractElement createAbstractElement()
+  public Model createModel()
   {
-    AbstractElementImpl abstractElement = new AbstractElementImpl();
-    return abstractElement;
+    ModelImpl model = new ModelImpl();
+    return model;
   }
 
   /**
@@ -121,10 +126,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Variables createVariables()
+  public Variable createVariable()
   {
-    VariablesImpl variables = new VariablesImpl();
-    return variables;
+    VariableImpl variable = new VariableImpl();
+    return variable;
   }
 
   /**
@@ -133,10 +138,10 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Import createImport()
+  public Value createValue()
   {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
+    ValueImpl value = new ValueImpl();
+    return value;
   }
 
   /**
@@ -144,11 +149,11 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public Type createType()
+  public DataType createDataTypeFromString(EDataType eDataType, String initialValue)
   {
-    TypeImpl type = new TypeImpl();
-    return type;
+    DataType result = DataType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
   }
 
   /**
@@ -156,35 +161,9 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public DataType createDataType()
+  public String convertDataTypeToString(EDataType eDataType, Object instanceValue)
   {
-    DataTypeImpl dataType = new DataTypeImpl();
-    return dataType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Entity createEntity()
-  {
-    EntityImpl entity = new EntityImpl();
-    return entity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Feature createFeature()
-  {
-    FeatureImpl feature = new FeatureImpl();
-    return feature;
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

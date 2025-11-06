@@ -76,49 +76,19 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
     new DomainmodelSwitch<Adapter>()
     {
       @Override
-      public Adapter caseDomainmodel(Domainmodel object)
+      public Adapter caseModel(Model object)
       {
-        return createDomainmodelAdapter();
+        return createModelAdapter();
       }
       @Override
-      public Adapter casePackageDeclaration(PackageDeclaration object)
+      public Adapter caseVariable(Variable object)
       {
-        return createPackageDeclarationAdapter();
+        return createVariableAdapter();
       }
       @Override
-      public Adapter caseAbstractElement(AbstractElement object)
+      public Adapter caseValue(Value object)
       {
-        return createAbstractElementAdapter();
-      }
-      @Override
-      public Adapter caseVariables(Variables object)
-      {
-        return createVariablesAdapter();
-      }
-      @Override
-      public Adapter caseImport(Import object)
-      {
-        return createImportAdapter();
-      }
-      @Override
-      public Adapter caseType(Type object)
-      {
-        return createTypeAdapter();
-      }
-      @Override
-      public Adapter caseDataType(DataType object)
-      {
-        return createDataTypeAdapter();
-      }
-      @Override
-      public Adapter caseEntity(Entity object)
-      {
-        return createEntityAdapter();
-      }
-      @Override
-      public Adapter caseFeature(Feature object)
-      {
-        return createFeatureAdapter();
+        return createValueAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -143,136 +113,46 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Domainmodel <em>Domainmodel</em>}'.
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Model <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Domainmodel
+   * @see org.example.domainmodel.domainmodel.Model
    * @generated
    */
-  public Adapter createDomainmodelAdapter()
+  public Adapter createModelAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.PackageDeclaration <em>Package Declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.PackageDeclaration
+   * @see org.example.domainmodel.domainmodel.Variable
    * @generated
    */
-  public Adapter createPackageDeclarationAdapter()
+  public Adapter createVariableAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.AbstractElement <em>Abstract Element</em>}'.
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Value <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.AbstractElement
+   * @see org.example.domainmodel.domainmodel.Value
    * @generated
    */
-  public Adapter createAbstractElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Variables <em>Variables</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Variables
-   * @generated
-   */
-  public Adapter createVariablesAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Import <em>Import</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Import
-   * @generated
-   */
-  public Adapter createImportAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Type
-   * @generated
-   */
-  public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.DataType <em>Data Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.DataType
-   * @generated
-   */
-  public Adapter createDataTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Entity <em>Entity</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Entity
-   * @generated
-   */
-  public Adapter createEntityAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Feature <em>Feature</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Feature
-   * @generated
-   */
-  public Adapter createFeatureAdapter()
+  public Adapter createValueAdapter()
   {
     return null;
   }

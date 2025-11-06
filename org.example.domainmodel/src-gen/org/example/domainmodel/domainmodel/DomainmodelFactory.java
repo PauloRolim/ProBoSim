@@ -24,85 +24,31 @@ public interface DomainmodelFactory extends EFactory
   DomainmodelFactory eINSTANCE = org.example.domainmodel.domainmodel.impl.DomainmodelFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Domainmodel</em>'.
+   * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domainmodel</em>'.
+   * @return a new object of class '<em>Model</em>'.
    * @generated
    */
-  Domainmodel createDomainmodel();
+  Model createModel();
 
   /**
-   * Returns a new object of class '<em>Package Declaration</em>'.
+   * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Declaration</em>'.
+   * @return a new object of class '<em>Variable</em>'.
    * @generated
    */
-  PackageDeclaration createPackageDeclaration();
+  Variable createVariable();
 
   /**
-   * Returns a new object of class '<em>Abstract Element</em>'.
+   * Returns a new object of class '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Element</em>'.
+   * @return a new object of class '<em>Value</em>'.
    * @generated
    */
-  AbstractElement createAbstractElement();
-
-  /**
-   * Returns a new object of class '<em>Variables</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variables</em>'.
-   * @generated
-   */
-  Variables createVariables();
-
-  /**
-   * Returns a new object of class '<em>Import</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import</em>'.
-   * @generated
-   */
-  Import createImport();
-
-  /**
-   * Returns a new object of class '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
-   * @generated
-   */
-  Type createType();
-
-  /**
-   * Returns a new object of class '<em>Data Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Data Type</em>'.
-   * @generated
-   */
-  DataType createDataType();
-
-  /**
-   * Returns a new object of class '<em>Entity</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity</em>'.
-   * @generated
-   */
-  Entity createEntity();
-
-  /**
-   * Returns a new object of class '<em>Feature</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature</em>'.
-   * @generated
-   */
-  Feature createFeature();
+  Value createValue();
 
   /**
    * Returns the package supported by this factory.

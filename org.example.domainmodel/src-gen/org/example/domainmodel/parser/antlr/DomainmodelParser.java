@@ -27,7 +27,7 @@ public class DomainmodelParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Domainmodel";
+		return "Model";
 	}
 
 	public DomainmodelGrammarAccess getGrammarAccess() {

@@ -9,7 +9,7 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-import org.example.domainmodel.domainmodel.Domainmodel;
+import org.example.domainmodel.domainmodel.Model;
 
 /**
  * Generates code from your model files on save.
@@ -21,12 +21,12 @@ public class DomainmodelGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
-    final Domainmodel root = ((Domainmodel) _head);
-    if ((root != null)) {
+    final Model RoboSimModel = ((Model) _head);
+    if ((RoboSimModel != null)) {
       String _lastSegment = resource.getURI().lastSegment();
       String _plus = ("generated/" + _lastSegment);
       String path = (_plus + "/");
-      fsa.generateFile((path + "logic_i.imp"), TextGenerator.toText(root));
+      fsa.generateFile((path + "logic_i.imp"), TextGenerator.generateBMachine(RoboSimModel));
     }
   }
 }

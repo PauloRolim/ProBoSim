@@ -2,40 +2,19 @@ grammar org.example.domainmodel.Domainmodel with org.eclipse.xtext.common.Termin
 
 generate domainmodel "http://www.example.org/domainmodel/Domainmodel"
 
-Domainmodel:
-    (elements+=AbstractElement | variables+=Variables)*;
-
-PackageDeclaration:
-    'package' name=QualifiedName '{'
-        (elements+=AbstractElement)*
-    '}';       
-
-AbstractElement:
-    PackageDeclaration | Type | Import;
-
-    
-Variables: 'Variables' name=ID
+Model:
+	'stm' name=ID '{'
+        variables+=Variable*
+    '}'
+;
+          
+Variable: 
+	'var' name=ID ':' type=DataType ('=' initialValue=Value)?
 ; 
 
-QualifiedName:
-    ID ('.' ID)*;
+enum DataType:
+    NAT | INT | REAL | BOOL;
     
-Import:
-    'import' importedNamespace=QualifiedNameWithWildcard;
- 
-QualifiedNameWithWildcard:
-    QualifiedName '.*'?;    
-
-Type:
-    DataType | Entity;
-
-DataType:
-    'datatype' name=ID;
- 
-Entity:
-    'entity' name=ID ('extends' superType=[Entity|QualifiedName])? '{'
-        (features+=Feature)*
-    '}';
- 
-Feature:
-    (many?='many')? name=ID ':' type=[Type|QualifiedName];    
+Value:
+    value=('NAT' | 'INT' | 'REAL' | 'true' | 'false')
+;

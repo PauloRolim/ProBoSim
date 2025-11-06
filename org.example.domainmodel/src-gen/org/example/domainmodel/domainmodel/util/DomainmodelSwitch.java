@@ -73,73 +73,24 @@ public class DomainmodelSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case DomainmodelPackage.DOMAINMODEL:
+      case DomainmodelPackage.MODEL:
       {
-        Domainmodel domainmodel = (Domainmodel)theEObject;
-        T result = caseDomainmodel(domainmodel);
+        Model model = (Model)theEObject;
+        T result = caseModel(model);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.PACKAGE_DECLARATION:
+      case DomainmodelPackage.VARIABLE:
       {
-        PackageDeclaration packageDeclaration = (PackageDeclaration)theEObject;
-        T result = casePackageDeclaration(packageDeclaration);
-        if (result == null) result = caseAbstractElement(packageDeclaration);
+        Variable variable = (Variable)theEObject;
+        T result = caseVariable(variable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.ABSTRACT_ELEMENT:
+      case DomainmodelPackage.VALUE:
       {
-        AbstractElement abstractElement = (AbstractElement)theEObject;
-        T result = caseAbstractElement(abstractElement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.VARIABLES:
-      {
-        Variables variables = (Variables)theEObject;
-        T result = caseVariables(variables);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.IMPORT:
-      {
-        Import import_ = (Import)theEObject;
-        T result = caseImport(import_);
-        if (result == null) result = caseAbstractElement(import_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.TYPE:
-      {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
-        if (result == null) result = caseAbstractElement(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.DATA_TYPE:
-      {
-        DataType dataType = (DataType)theEObject;
-        T result = caseDataType(dataType);
-        if (result == null) result = caseType(dataType);
-        if (result == null) result = caseAbstractElement(dataType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.ENTITY:
-      {
-        Entity entity = (Entity)theEObject;
-        T result = caseEntity(entity);
-        if (result == null) result = caseType(entity);
-        if (result == null) result = caseAbstractElement(entity);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.FEATURE:
-      {
-        Feature feature = (Feature)theEObject;
-        T result = caseFeature(feature);
+        Value value = (Value)theEObject;
+        T result = caseValue(value);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,145 +99,49 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Domainmodel</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Domainmodel</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDomainmodel(Domainmodel object)
+  public T caseModel(Model object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Package Declaration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package Declaration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePackageDeclaration(PackageDeclaration object)
+  public T caseVariable(Variable object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractElement(AbstractElement object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variables</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variables</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariables(Variables object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImport(Import object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDataType(DataType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEntity(Entity object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFeature(Feature object)
+  public T caseValue(Value object)
   {
     return null;
   }
