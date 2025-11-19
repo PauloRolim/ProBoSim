@@ -11,8 +11,15 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.example.domainmodel.domainmodel.Clock;
+import org.example.domainmodel.domainmodel.Constant;
+import org.example.domainmodel.domainmodel.CycleDef;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
+import org.example.domainmodel.domainmodel.EventDecl;
+import org.example.domainmodel.domainmodel.Interface;
 import org.example.domainmodel.domainmodel.Model;
 import org.example.domainmodel.domainmodel.Value;
 import org.example.domainmodel.domainmodel.Variable;
@@ -32,6 +39,21 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DomainmodelPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DomainmodelPackage.CLOCK:
+				sequence_Clock(context, (Clock) semanticObject); 
+				return; 
+			case DomainmodelPackage.CONSTANT:
+				sequence_Constant(context, (Constant) semanticObject); 
+				return; 
+			case DomainmodelPackage.CYCLE_DEF:
+				sequence_CycleDef(context, (CycleDef) semanticObject); 
+				return; 
+			case DomainmodelPackage.EVENT_DECL:
+				sequence_EventDecl(context, (EventDecl) semanticObject); 
+				return; 
+			case DomainmodelPackage.INTERFACE:
+				sequence_Interface(context, (Interface) semanticObject); 
+				return; 
 			case DomainmodelPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
@@ -48,10 +70,91 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
+	 *     Clock returns Clock
+	 *
+	 * Constraint:
+	 *     (name=ID initialValue=INT?)
+	 */
+	protected void sequence_Clock(ISerializationContext context, Clock semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Constant returns Constant
+	 *
+	 * Constraint:
+	 *     (name=ID type=DataType)
+	 */
+	protected void sequence_Constant(ISerializationContext context, Constant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.CONSTANT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.CONSTANT__NAME));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.CONSTANT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.CONSTANT__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getConstantAccess().getTypeDataTypeEnumRuleCall_3_0(), semanticObject.getType());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CycleDef returns CycleDef
+	 *
+	 * Constraint:
+	 *     value=INT
+	 */
+	protected void sequence_CycleDef(ISerializationContext context, CycleDef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.CYCLE_DEF__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.CYCLE_DEF__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCycleDefAccess().getValueINTTerminalRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EventDecl returns EventDecl
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_EventDecl(ISerializationContext context, EventDecl semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.EVENT_DECL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.EVENT_DECL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEventDeclAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Interface returns Interface
+	 *
+	 * Constraint:
+	 *     (name=ID events+=EventDecl*)
+	 */
+	protected void sequence_Interface(ISerializationContext context, Interface semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=ID variables+=Variable*)
+	 *     (interface=ID events+=EventDecl* name=ID cycleDef=CycleDef? (constants+=Constant | variables+=Variable | clock+=Clock)*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

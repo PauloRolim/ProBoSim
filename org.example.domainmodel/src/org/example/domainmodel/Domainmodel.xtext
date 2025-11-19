@@ -3,8 +3,19 @@ grammar org.example.domainmodel.Domainmodel with org.eclipse.xtext.common.Termin
 generate domainmodel "http://www.example.org/domainmodel/Domainmodel"
 
 Model:
+	
+	'interface' interface=ID '{'
+	    events+=EventDecl*
+	'}'
+	
 	'stm' name=ID '{'
-        variables+=Variable*
+	    (cycleDef=CycleDef)?
+	    //(clock=Clock)? 
+        (constants+=Constant | 
+         variables+=Variable | 
+         clock+=Clock //| 
+         //interfaces+=Interface
+        )*
     '}'
 ;
           
@@ -12,9 +23,31 @@ Variable:
 	'var' name=ID ':' type=DataType ('=' initialValue=Value)?
 ; 
 
+Constant:
+    'const' name=ID ':' type=DataType
+;
+
+CycleDef:
+	'cycleDef' 'cycle' '==' value=INT
+;
+
+Clock:
+    'clock' name=ID ('=' initialValue=INT)?
+;
+
+Interface:
+    'interface' name=ID '{'
+        events+=EventDecl*
+    '}'
+;
+
+EventDecl:
+    'event' name=ID
+;
+
 enum DataType:
     NAT | INT | REAL | BOOL;
     
 Value:
-    value=('NAT' | 'INT' | 'REAL' | 'true' | 'false')
+    value=('NAT' | 'INT' | 'REAL' | 'true' | 'false' )
 ;

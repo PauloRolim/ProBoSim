@@ -13,13 +13,36 @@
       <genEnumLiterals ecoreEnumLiteral="Domainmodel.ecore#//DataType/BOOL"/>
     </genEnums>
     <genClasses ecoreClass="Domainmodel.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Model/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Model/events"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Model/cycleDef"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Model/constants"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Model/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Model/clock"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//Variable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Variable/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Variable/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Variable/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//Constant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Constant/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Constant/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//CycleDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//CycleDef/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//Clock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Clock/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Clock/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//Interface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Interface/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Domainmodel.ecore#//Interface/events"/>
+    </genClasses>
+    <genClasses ecoreClass="Domainmodel.ecore#//EventDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//EventDecl/name"/>
     </genClasses>
     <genClasses ecoreClass="Domainmodel.ecore#//Value">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Domainmodel.ecore#//Value/value"/>

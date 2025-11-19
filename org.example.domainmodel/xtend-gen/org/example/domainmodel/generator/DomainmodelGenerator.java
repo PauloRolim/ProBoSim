@@ -21,12 +21,20 @@ public class DomainmodelGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
-    final Model RoboSimModel = ((Model) _head);
-    if ((RoboSimModel != null)) {
+    final Model UserLogic = ((Model) _head);
+    if ((UserLogic != null)) {
       String _lastSegment = resource.getURI().lastSegment();
       String _plus = ("generated/" + _lastSegment);
       String path = (_plus + "/");
-      fsa.generateFile((path + "logic_i.imp"), TextGenerator.generateBMachine(RoboSimModel));
+      fsa.generateFile((path + "logic_i.imp"), TextGenerator.generateBMachine(UserLogic));
+    }
+    EObject _head_1 = IteratorExtensions.<EObject>head(resource.getAllContents());
+    final Model UserCtx = ((Model) _head_1);
+    if ((UserCtx != null)) {
+      String _lastSegment_1 = resource.getURI().lastSegment();
+      String _plus_1 = ("generated/" + _lastSegment_1);
+      String path_1 = (_plus_1 + "/");
+      fsa.generateFile((path_1 + "user_ctx.mch"), UserCtxGenerator.generateUserCtx(UserCtx));
     }
   }
 }

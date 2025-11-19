@@ -16,8 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.example.domainmodel.domainmodel.Model#getInterface <em>Interface</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.Model#getEvents <em>Events</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.Model#getName <em>Name</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.Model#getCycleDef <em>Cycle Def</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.Model#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.Model#getVariables <em>Variables</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.Model#getClock <em>Clock</em>}</li>
  * </ul>
  *
  * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getModel()
@@ -26,6 +31,40 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Interface</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Interface</em>' attribute.
+   * @see #setInterface(String)
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getModel_Interface()
+   * @model
+   * @generated
+   */
+  String getInterface();
+
+  /**
+   * Sets the value of the '{@link org.example.domainmodel.domainmodel.Model#getInterface <em>Interface</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Interface</em>' attribute.
+   * @see #getInterface()
+   * @generated
+   */
+  void setInterface(String value);
+
+  /**
+   * Returns the value of the '<em><b>Events</b></em>' containment reference list.
+   * The list contents are of type {@link org.example.domainmodel.domainmodel.EventDecl}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Events</em>' containment reference list.
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getModel_Events()
+   * @model containment="true"
+   * @generated
+   */
+  EList<EventDecl> getEvents();
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -49,6 +88,40 @@ public interface Model extends EObject
   void setName(String value);
 
   /**
+   * Returns the value of the '<em><b>Cycle Def</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cycle Def</em>' containment reference.
+   * @see #setCycleDef(CycleDef)
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getModel_CycleDef()
+   * @model containment="true"
+   * @generated
+   */
+  CycleDef getCycleDef();
+
+  /**
+   * Sets the value of the '{@link org.example.domainmodel.domainmodel.Model#getCycleDef <em>Cycle Def</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Cycle Def</em>' containment reference.
+   * @see #getCycleDef()
+   * @generated
+   */
+  void setCycleDef(CycleDef value);
+
+  /**
+   * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
+   * The list contents are of type {@link org.example.domainmodel.domainmodel.Constant}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Constants</em>' containment reference list.
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getModel_Constants()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Constant> getConstants();
+
+  /**
    * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
    * The list contents are of type {@link org.example.domainmodel.domainmodel.Variable}.
    * <!-- begin-user-doc -->
@@ -59,5 +132,17 @@ public interface Model extends EObject
    * @generated
    */
   EList<Variable> getVariables();
+
+  /**
+   * Returns the value of the '<em><b>Clock</b></em>' containment reference list.
+   * The list contents are of type {@link org.example.domainmodel.domainmodel.Clock}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Clock</em>' containment reference list.
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getModel_Clock()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Clock> getClock();
 
 } // Model

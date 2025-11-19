@@ -18,10 +18,18 @@ class DomainmodelGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
-		val RoboSimModel = resource.allContents.head as Model;
-		if (RoboSimModel !== null) {
+		val UserLogic = resource.allContents.head as Model;
+		if (UserLogic !== null) {
  			var path = "generated/" + resource.getURI().lastSegment + "/"
- 			fsa.generateFile(path+"logic_i.imp", TextGenerator.generateBMachine(RoboSimModel))
- 		}		
+ 			fsa.generateFile(path+"logic_i.imp", TextGenerator.generateBMachine(UserLogic))
+ 			
+ 		}
+ 		
+ 		val UserCtx = resource.allContents.head as Model;
+ 		if (UserCtx !== null) {
+ 			var path = "generated/" + resource.getURI().lastSegment + "/"
+ 			fsa.generateFile(path+"user_ctx.mch", UserCtxGenerator.generateUserCtx(UserCtx))
+ 		}
+ 				
 	}
 }
