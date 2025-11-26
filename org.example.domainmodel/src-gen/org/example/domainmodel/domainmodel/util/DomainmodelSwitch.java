@@ -80,38 +80,17 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.VARIABLE:
-      {
-        Variable variable = (Variable)theEObject;
-        T result = caseVariable(variable);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.CONSTANT:
-      {
-        Constant constant = (Constant)theEObject;
-        T result = caseConstant(constant);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.CYCLE_DEF:
-      {
-        CycleDef cycleDef = (CycleDef)theEObject;
-        T result = caseCycleDef(cycleDef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DomainmodelPackage.CLOCK:
-      {
-        Clock clock = (Clock)theEObject;
-        T result = caseClock(clock);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DomainmodelPackage.INTERFACE:
       {
         Interface interface_ = (Interface)theEObject;
         T result = caseInterface(interface_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.OPERATION_DECL:
+      {
+        OperationDecl operationDecl = (OperationDecl)theEObject;
+        T result = caseOperationDecl(operationDecl);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -122,10 +101,45 @@ public class DomainmodelSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DomainmodelPackage.VALUE:
+      case DomainmodelPackage.PARAM:
       {
-        Value value = (Value)theEObject;
-        T result = caseValue(value);
+        Param param = (Param)theEObject;
+        T result = caseParam(param);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.CONTEXT_DECL:
+      {
+        ContextDecl contextDecl = (ContextDecl)theEObject;
+        T result = caseContextDecl(contextDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.CONSTANT:
+      {
+        Constant constant = (Constant)theEObject;
+        T result = caseConstant(constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.VARIABLE:
+      {
+        Variable variable = (Variable)theEObject;
+        T result = caseVariable(variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.CLOCK:
+      {
+        Clock clock = (Clock)theEObject;
+        T result = caseClock(clock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DomainmodelPackage.CYCLE_DEF:
+      {
+        CycleDef cycleDef = (CycleDef)theEObject;
+        T result = caseCycleDef(cycleDef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,70 +164,6 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariable(Variable object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstant(Constant object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Cycle Def</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Cycle Def</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCycleDef(CycleDef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Clock</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Clock</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseClock(Clock object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -225,6 +175,22 @@ public class DomainmodelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInterface(Interface object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operation Decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operation Decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperationDecl(OperationDecl object)
   {
     return null;
   }
@@ -246,17 +212,97 @@ public class DomainmodelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Param</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Param</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseValue(Value object)
+  public T caseParam(Param object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context Decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context Decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextDecl(ContextDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstant(Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariable(Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Clock</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Clock</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseClock(Clock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Cycle Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Cycle Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCycleDef(CycleDef object)
   {
     return null;
   }

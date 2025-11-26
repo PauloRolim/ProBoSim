@@ -17,8 +17,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.example.domainmodel.domainmodel.ContextDecl;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
 import org.example.domainmodel.domainmodel.EventDecl;
 import org.example.domainmodel.domainmodel.Interface;
@@ -26,50 +28,61 @@ import org.example.domainmodel.domainmodel.OperationDecl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Interface</b></em>'.
+ * An implementation of the model object '<em><b>Context Decl</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl#getEvents <em>Events</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ContextDeclImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ContextDeclImpl#getUsedInterfaces <em>Used Interfaces</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ContextDeclImpl#getOps <em>Ops</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ContextDeclImpl#getEvents <em>Events</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InterfaceImpl extends MinimalEObjectImpl.Container implements Interface
+public class ContextDeclImpl extends MinimalEObjectImpl.Container implements ContextDecl
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getKind()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String KIND_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getKind()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String kind = KIND_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
+   * The cached value of the '{@link #getUsedInterfaces() <em>Used Interfaces</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperations()
+   * @see #getUsedInterfaces()
    * @generated
    * @ordered
    */
-  protected EList<OperationDecl> operations;
+  protected EList<Interface> usedInterfaces;
+
+  /**
+   * The cached value of the '{@link #getOps() <em>Ops</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOps()
+   * @generated
+   * @ordered
+   */
+  protected EList<OperationDecl> ops;
 
   /**
    * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
@@ -86,7 +99,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * <!-- end-user-doc -->
    * @generated
    */
-  protected InterfaceImpl()
+  protected ContextDeclImpl()
   {
     super();
   }
@@ -99,7 +112,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   @Override
   protected EClass eStaticClass()
   {
-    return DomainmodelPackage.Literals.INTERFACE;
+    return DomainmodelPackage.Literals.CONTEXT_DECL;
   }
 
   /**
@@ -108,9 +121,9 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * @generated
    */
   @Override
-  public String getName()
+  public String getKind()
   {
-    return name;
+    return kind;
   }
 
   /**
@@ -119,12 +132,12 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setKind(String newKind)
   {
-    String oldName = name;
-    name = newName;
+    String oldKind = kind;
+    kind = newKind;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.INTERFACE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.CONTEXT_DECL__KIND, oldKind, kind));
   }
 
   /**
@@ -133,13 +146,28 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * @generated
    */
   @Override
-  public EList<OperationDecl> getOperations()
+  public EList<Interface> getUsedInterfaces()
   {
-    if (operations == null)
+    if (usedInterfaces == null)
     {
-      operations = new EObjectContainmentEList<OperationDecl>(OperationDecl.class, this, DomainmodelPackage.INTERFACE__OPERATIONS);
+      usedInterfaces = new EObjectResolvingEList<Interface>(Interface.class, this, DomainmodelPackage.CONTEXT_DECL__USED_INTERFACES);
     }
-    return operations;
+    return usedInterfaces;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<OperationDecl> getOps()
+  {
+    if (ops == null)
+    {
+      ops = new EObjectContainmentEList<OperationDecl>(OperationDecl.class, this, DomainmodelPackage.CONTEXT_DECL__OPS);
+    }
+    return ops;
   }
 
   /**
@@ -152,7 +180,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     if (events == null)
     {
-      events = new EObjectContainmentEList<EventDecl>(EventDecl.class, this, DomainmodelPackage.INTERFACE__EVENTS);
+      events = new EObjectContainmentEList<EventDecl>(EventDecl.class, this, DomainmodelPackage.CONTEXT_DECL__EVENTS);
     }
     return events;
   }
@@ -167,9 +195,9 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
-      case DomainmodelPackage.INTERFACE__EVENTS:
+      case DomainmodelPackage.CONTEXT_DECL__OPS:
+        return ((InternalEList<?>)getOps()).basicRemove(otherEnd, msgs);
+      case DomainmodelPackage.CONTEXT_DECL__EVENTS:
         return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -185,11 +213,13 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
-        return getName();
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        return getOperations();
-      case DomainmodelPackage.INTERFACE__EVENTS:
+      case DomainmodelPackage.CONTEXT_DECL__KIND:
+        return getKind();
+      case DomainmodelPackage.CONTEXT_DECL__USED_INTERFACES:
+        return getUsedInterfaces();
+      case DomainmodelPackage.CONTEXT_DECL__OPS:
+        return getOps();
+      case DomainmodelPackage.CONTEXT_DECL__EVENTS:
         return getEvents();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -206,14 +236,18 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
-        setName((String)newValue);
+      case DomainmodelPackage.CONTEXT_DECL__KIND:
+        setKind((String)newValue);
         return;
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        getOperations().clear();
-        getOperations().addAll((Collection<? extends OperationDecl>)newValue);
+      case DomainmodelPackage.CONTEXT_DECL__USED_INTERFACES:
+        getUsedInterfaces().clear();
+        getUsedInterfaces().addAll((Collection<? extends Interface>)newValue);
         return;
-      case DomainmodelPackage.INTERFACE__EVENTS:
+      case DomainmodelPackage.CONTEXT_DECL__OPS:
+        getOps().clear();
+        getOps().addAll((Collection<? extends OperationDecl>)newValue);
+        return;
+      case DomainmodelPackage.CONTEXT_DECL__EVENTS:
         getEvents().clear();
         getEvents().addAll((Collection<? extends EventDecl>)newValue);
         return;
@@ -231,13 +265,16 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
-        setName(NAME_EDEFAULT);
+      case DomainmodelPackage.CONTEXT_DECL__KIND:
+        setKind(KIND_EDEFAULT);
         return;
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        getOperations().clear();
+      case DomainmodelPackage.CONTEXT_DECL__USED_INTERFACES:
+        getUsedInterfaces().clear();
         return;
-      case DomainmodelPackage.INTERFACE__EVENTS:
+      case DomainmodelPackage.CONTEXT_DECL__OPS:
+        getOps().clear();
+        return;
+      case DomainmodelPackage.CONTEXT_DECL__EVENTS:
         getEvents().clear();
         return;
     }
@@ -254,11 +291,13 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        return operations != null && !operations.isEmpty();
-      case DomainmodelPackage.INTERFACE__EVENTS:
+      case DomainmodelPackage.CONTEXT_DECL__KIND:
+        return KIND_EDEFAULT == null ? kind != null : !KIND_EDEFAULT.equals(kind);
+      case DomainmodelPackage.CONTEXT_DECL__USED_INTERFACES:
+        return usedInterfaces != null && !usedInterfaces.isEmpty();
+      case DomainmodelPackage.CONTEXT_DECL__OPS:
+        return ops != null && !ops.isEmpty();
+      case DomainmodelPackage.CONTEXT_DECL__EVENTS:
         return events != null && !events.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -275,10 +314,10 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (kind: ");
+    result.append(kind);
     result.append(')');
     return result.toString();
   }
 
-} //InterfaceImpl
+} //ContextDeclImpl

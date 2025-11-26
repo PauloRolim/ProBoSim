@@ -73,25 +73,25 @@ public interface Variable extends EObject
   void setType(DataType value);
 
   /**
-   * Returns the value of the '<em><b>Initial Value</b></em>' containment reference.
+   * Returns the value of the '<em><b>Initial Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Initial Value</em>' containment reference.
-   * @see #setInitialValue(Value)
+   * @return the value of the '<em>Initial Value</em>' attribute.
+   * @see #setInitialValue(int)
    * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getVariable_InitialValue()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  Value getInitialValue();
+  int getInitialValue();
 
   /**
-   * Sets the value of the '{@link org.example.domainmodel.domainmodel.Variable#getInitialValue <em>Initial Value</em>}' containment reference.
+   * Sets the value of the '{@link org.example.domainmodel.domainmodel.Variable#getInitialValue <em>Initial Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Initial Value</em>' containment reference.
+   * @param value the new value of the '<em>Initial Value</em>' attribute.
    * @see #getInitialValue()
    * @generated
    */
-  void setInitialValue(Value value);
+  void setInitialValue(int value);
 
 } // Variable

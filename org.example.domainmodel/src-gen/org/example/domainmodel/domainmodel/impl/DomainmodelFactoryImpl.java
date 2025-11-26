@@ -67,13 +67,15 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
     switch (eClass.getClassifierID())
     {
       case DomainmodelPackage.MODEL: return createModel();
-      case DomainmodelPackage.VARIABLE: return createVariable();
-      case DomainmodelPackage.CONSTANT: return createConstant();
-      case DomainmodelPackage.CYCLE_DEF: return createCycleDef();
-      case DomainmodelPackage.CLOCK: return createClock();
       case DomainmodelPackage.INTERFACE: return createInterface();
+      case DomainmodelPackage.OPERATION_DECL: return createOperationDecl();
       case DomainmodelPackage.EVENT_DECL: return createEventDecl();
-      case DomainmodelPackage.VALUE: return createValue();
+      case DomainmodelPackage.PARAM: return createParam();
+      case DomainmodelPackage.CONTEXT_DECL: return createContextDecl();
+      case DomainmodelPackage.CONSTANT: return createConstant();
+      case DomainmodelPackage.VARIABLE: return createVariable();
+      case DomainmodelPackage.CLOCK: return createClock();
+      case DomainmodelPackage.CYCLE_DEF: return createCycleDef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -131,58 +133,22 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Variable createVariable()
-  {
-    VariableImpl variable = new VariableImpl();
-    return variable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Constant createConstant()
-  {
-    ConstantImpl constant = new ConstantImpl();
-    return constant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CycleDef createCycleDef()
-  {
-    CycleDefImpl cycleDef = new CycleDefImpl();
-    return cycleDef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Clock createClock()
-  {
-    ClockImpl clock = new ClockImpl();
-    return clock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Interface createInterface()
   {
     InterfaceImpl interface_ = new InterfaceImpl();
     return interface_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OperationDecl createOperationDecl()
+  {
+    OperationDeclImpl operationDecl = new OperationDeclImpl();
+    return operationDecl;
   }
 
   /**
@@ -203,10 +169,70 @@ public class DomainmodelFactoryImpl extends EFactoryImpl implements DomainmodelF
    * @generated
    */
   @Override
-  public Value createValue()
+  public Param createParam()
   {
-    ValueImpl value = new ValueImpl();
-    return value;
+    ParamImpl param = new ParamImpl();
+    return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ContextDecl createContextDecl()
+  {
+    ContextDeclImpl contextDecl = new ContextDeclImpl();
+    return contextDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Constant createConstant()
+  {
+    ConstantImpl constant = new ConstantImpl();
+    return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Variable createVariable()
+  {
+    VariableImpl variable = new VariableImpl();
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Clock createClock()
+  {
+    ClockImpl clock = new ClockImpl();
+    return clock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CycleDef createCycleDef()
+  {
+    CycleDefImpl cycleDef = new CycleDefImpl();
+    return cycleDef;
   }
 
   /**

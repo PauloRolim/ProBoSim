@@ -33,42 +33,6 @@ public interface DomainmodelFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Variable</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable</em>'.
-   * @generated
-   */
-  Variable createVariable();
-
-  /**
-   * Returns a new object of class '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant</em>'.
-   * @generated
-   */
-  Constant createConstant();
-
-  /**
-   * Returns a new object of class '<em>Cycle Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cycle Def</em>'.
-   * @generated
-   */
-  CycleDef createCycleDef();
-
-  /**
-   * Returns a new object of class '<em>Clock</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Clock</em>'.
-   * @generated
-   */
-  Clock createClock();
-
-  /**
    * Returns a new object of class '<em>Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +40,15 @@ public interface DomainmodelFactory extends EFactory
    * @generated
    */
   Interface createInterface();
+
+  /**
+   * Returns a new object of class '<em>Operation Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Operation Decl</em>'.
+   * @generated
+   */
+  OperationDecl createOperationDecl();
 
   /**
    * Returns a new object of class '<em>Event Decl</em>'.
@@ -87,13 +60,58 @@ public interface DomainmodelFactory extends EFactory
   EventDecl createEventDecl();
 
   /**
-   * Returns a new object of class '<em>Value</em>'.
+   * Returns a new object of class '<em>Param</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value</em>'.
+   * @return a new object of class '<em>Param</em>'.
    * @generated
    */
-  Value createValue();
+  Param createParam();
+
+  /**
+   * Returns a new object of class '<em>Context Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context Decl</em>'.
+   * @generated
+   */
+  ContextDecl createContextDecl();
+
+  /**
+   * Returns a new object of class '<em>Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant</em>'.
+   * @generated
+   */
+  Constant createConstant();
+
+  /**
+   * Returns a new object of class '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable</em>'.
+   * @generated
+   */
+  Variable createVariable();
+
+  /**
+   * Returns a new object of class '<em>Clock</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Clock</em>'.
+   * @generated
+   */
+  Clock createClock();
+
+  /**
+   * Returns a new object of class '<em>Cycle Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Cycle Def</em>'.
+   * @generated
+   */
+  CycleDef createCycleDef();
 
   /**
    * Returns the package supported by this factory.

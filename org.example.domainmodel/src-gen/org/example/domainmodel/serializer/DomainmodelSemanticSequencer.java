@@ -16,12 +16,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.example.domainmodel.domainmodel.Clock;
 import org.example.domainmodel.domainmodel.Constant;
+import org.example.domainmodel.domainmodel.ContextDecl;
 import org.example.domainmodel.domainmodel.CycleDef;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
 import org.example.domainmodel.domainmodel.EventDecl;
 import org.example.domainmodel.domainmodel.Interface;
 import org.example.domainmodel.domainmodel.Model;
-import org.example.domainmodel.domainmodel.Value;
+import org.example.domainmodel.domainmodel.OperationDecl;
+import org.example.domainmodel.domainmodel.Param;
 import org.example.domainmodel.domainmodel.Variable;
 import org.example.domainmodel.services.DomainmodelGrammarAccess;
 
@@ -45,6 +47,9 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case DomainmodelPackage.CONSTANT:
 				sequence_Constant(context, (Constant) semanticObject); 
 				return; 
+			case DomainmodelPackage.CONTEXT_DECL:
+				sequence_ContextDecl(context, (ContextDecl) semanticObject); 
+				return; 
 			case DomainmodelPackage.CYCLE_DEF:
 				sequence_CycleDef(context, (CycleDef) semanticObject); 
 				return; 
@@ -57,8 +62,11 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case DomainmodelPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case DomainmodelPackage.VALUE:
-				sequence_Value(context, (Value) semanticObject); 
+			case DomainmodelPackage.OPERATION_DECL:
+				sequence_OperationDecl(context, (OperationDecl) semanticObject); 
+				return; 
+			case DomainmodelPackage.PARAM:
+				sequence_Param(context, (Param) semanticObject); 
 				return; 
 			case DomainmodelPackage.VARIABLE:
 				sequence_Variable(context, (Variable) semanticObject); 
@@ -103,6 +111,18 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
+	 *     ContextDecl returns ContextDecl
+	 *
+	 * Constraint:
+	 *     ((kind='input' | kind='output') usedInterfaces+=[Interface|ID] usedInterfaces+=[Interface|ID]* (ops+=OperationDecl | events+=EventDecl)*)
+	 */
+	protected void sequence_ContextDecl(ISerializationContext context, ContextDecl semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     CycleDef returns CycleDef
 	 *
 	 * Constraint:
@@ -142,7 +162,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Interface returns Interface
 	 *
 	 * Constraint:
-	 *     (name=ID events+=EventDecl*)
+	 *     (name=ID (operations+=OperationDecl | events+=EventDecl)*)
 	 */
 	protected void sequence_Interface(ISerializationContext context, Interface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -154,7 +174,15 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (interface=ID events+=EventDecl* name=ID cycleDef=CycleDef? (constants+=Constant | variables+=Variable | clock+=Clock)*)
+	 *     (
+	 *         interface+=Interface* 
+	 *         name=ID 
+	 *         cycleDef=CycleDef? 
+	 *         constants+=Constant* 
+	 *         variables+=Variable* 
+	 *         clock+=Clock* 
+	 *         contexts+=ContextDecl*
+	 *     )
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -163,13 +191,34 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Contexts:
-	 *     Value returns Value
+	 *     OperationDecl returns OperationDecl
 	 *
 	 * Constraint:
-	 *     (value='NAT' | value='INT' | value='REAL' | value='true' | value='false')
+	 *     (name=ID (params+=Param params+=Param*)?)
 	 */
-	protected void sequence_Value(ISerializationContext context, Value semanticObject) {
+	protected void sequence_OperationDecl(ISerializationContext context, OperationDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Param returns Param
+	 *
+	 * Constraint:
+	 *     (name=ID type=DataType)
+	 */
+	protected void sequence_Param(ISerializationContext context, Param semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.PARAM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.PARAM__NAME));
+			if (transientValues.isValueTransient(semanticObject, DomainmodelPackage.Literals.PARAM__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DomainmodelPackage.Literals.PARAM__TYPE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParamAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParamAccess().getTypeDataTypeEnumRuleCall_2_0(), semanticObject.getType());
+		feeder.finish();
 	}
 	
 	
@@ -178,7 +227,7 @@ public class DomainmodelSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Variable returns Variable
 	 *
 	 * Constraint:
-	 *     (name=ID type=DataType initialValue=Value?)
+	 *     (name=ID type=DataType initialValue=INT?)
 	 */
 	protected void sequence_Variable(ISerializationContext context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

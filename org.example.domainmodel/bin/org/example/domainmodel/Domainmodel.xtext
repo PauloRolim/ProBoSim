@@ -2,52 +2,59 @@ grammar org.example.domainmodel.Domainmodel with org.eclipse.xtext.common.Termin
 
 generate domainmodel "http://www.example.org/domainmodel/Domainmodel"
 
-Model:
-	
-	'interface' interface=ID '{'
-	    events+=EventDecl*
-	'}'
-	
+//Modelo RoboSim
+Model:	 
+	interface+=Interface* 	
 	'stm' name=ID '{'
 	    (cycleDef=CycleDef)?
-	    //(clock=Clock)? 
-        (constants+=Constant | 
-         variables+=Variable | 
-         clock+=Clock //| 
-         //interfaces+=Interface
-        )*
+        constants+=Constant*  
+        variables+=Variable* 
+        clock+=Clock* 
+        contexts+=ContextDecl*
     '}'
 ;
           
-Variable: 
-	'var' name=ID ':' type=DataType ('=' initialValue=Value)?
-; 
-
-Constant:
-    'const' name=ID ':' type=DataType
-;
-
-CycleDef:
-	'cycleDef' 'cycle' '==' value=INT
-;
-
-Clock:
-    'clock' name=ID ('=' initialValue=INT)?
-;
-
 Interface:
     'interface' name=ID '{'
-        events+=EventDecl*
+        (operations+=OperationDecl | events+=EventDecl )*
     '}'
+;
+
+OperationDecl:
+   name=ID '(' (params+=Param (',' params+=Param)*)? ')'
 ;
 
 EventDecl:
     'event' name=ID
 ;
 
+Param:
+    name=ID ':' type=DataType
+;
+
+ContextDecl: 
+	kind=('input' | 'output') 'context' '{' 
+	      'uses' usedInterfaces+=[Interface] (',' usedInterfaces+=[Interface])*
+          (ops+=OperationDecl | events+=EventDecl)* 
+    '}' 
+;
+
+Constant:
+    'const' name=ID ':' type=DataType
+;
+
+Variable: 
+	'var' name=ID ':' type=DataType ('=' initialValue=INT)?
+; 
+
+Clock:
+    'clock' name=ID ('=' initialValue=INT)?
+;
+
+CycleDef:
+	'cycleDef' 'cycle' '==' value=INT
+;
+
 enum DataType:
     NAT | INT | REAL | BOOL;
     
-Value:
-    value=('NAT' | 'INT' | 'REAL' | 'true' | 'false' )
-;

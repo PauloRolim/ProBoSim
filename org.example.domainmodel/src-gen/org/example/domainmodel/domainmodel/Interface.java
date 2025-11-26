@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.example.domainmodel.domainmodel.Interface#getName <em>Name</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.Interface#getOperations <em>Operations</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.Interface#getEvents <em>Events</em>}</li>
  * </ul>
  *
@@ -47,6 +48,18 @@ public interface Interface extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+   * The list contents are of type {@link org.example.domainmodel.domainmodel.OperationDecl}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operations</em>' containment reference list.
+   * @see org.example.domainmodel.domainmodel.DomainmodelPackage#getInterface_Operations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<OperationDecl> getOperations();
 
   /**
    * Returns the value of the '<em><b>Events</b></em>' containment reference list.

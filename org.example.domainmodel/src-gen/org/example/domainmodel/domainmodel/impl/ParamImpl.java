@@ -12,24 +12,23 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.example.domainmodel.domainmodel.DataType;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
-import org.example.domainmodel.domainmodel.Variable;
+import org.example.domainmodel.domainmodel.Param;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable</b></em>'.
+ * An implementation of the model object '<em><b>Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.VariableImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.VariableImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.VariableImpl#getInitialValue <em>Initial Value</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ParamImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ParamImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VariableImpl extends MinimalEObjectImpl.Container implements Variable
+public class ParamImpl extends MinimalEObjectImpl.Container implements Param
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -72,31 +71,11 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   protected DataType type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInitialValue()
-   * @generated
-   * @ordered
-   */
-  protected static final int INITIAL_VALUE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInitialValue()
-   * @generated
-   * @ordered
-   */
-  protected int initialValue = INITIAL_VALUE_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VariableImpl()
+  protected ParamImpl()
   {
     super();
   }
@@ -109,7 +88,7 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   @Override
   protected EClass eStaticClass()
   {
-    return DomainmodelPackage.Literals.VARIABLE;
+    return DomainmodelPackage.Literals.PARAM;
   }
 
   /**
@@ -134,7 +113,7 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.VARIABLE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.PARAM__NAME, oldName, name));
   }
 
   /**
@@ -159,32 +138,7 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
     DataType oldType = type;
     type = newType == null ? TYPE_EDEFAULT : newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.VARIABLE__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int getInitialValue()
-  {
-    return initialValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setInitialValue(int newInitialValue)
-  {
-    int oldInitialValue = initialValue;
-    initialValue = newInitialValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.VARIABLE__INITIAL_VALUE, oldInitialValue, initialValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.PARAM__TYPE, oldType, type));
   }
 
   /**
@@ -197,12 +151,10 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   {
     switch (featureID)
     {
-      case DomainmodelPackage.VARIABLE__NAME:
+      case DomainmodelPackage.PARAM__NAME:
         return getName();
-      case DomainmodelPackage.VARIABLE__TYPE:
+      case DomainmodelPackage.PARAM__TYPE:
         return getType();
-      case DomainmodelPackage.VARIABLE__INITIAL_VALUE:
-        return getInitialValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,14 +169,11 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   {
     switch (featureID)
     {
-      case DomainmodelPackage.VARIABLE__NAME:
+      case DomainmodelPackage.PARAM__NAME:
         setName((String)newValue);
         return;
-      case DomainmodelPackage.VARIABLE__TYPE:
+      case DomainmodelPackage.PARAM__TYPE:
         setType((DataType)newValue);
-        return;
-      case DomainmodelPackage.VARIABLE__INITIAL_VALUE:
-        setInitialValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -240,14 +189,11 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   {
     switch (featureID)
     {
-      case DomainmodelPackage.VARIABLE__NAME:
+      case DomainmodelPackage.PARAM__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainmodelPackage.VARIABLE__TYPE:
+      case DomainmodelPackage.PARAM__TYPE:
         setType(TYPE_EDEFAULT);
-        return;
-      case DomainmodelPackage.VARIABLE__INITIAL_VALUE:
-        setInitialValue(INITIAL_VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -263,12 +209,10 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
   {
     switch (featureID)
     {
-      case DomainmodelPackage.VARIABLE__NAME:
+      case DomainmodelPackage.PARAM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainmodelPackage.VARIABLE__TYPE:
+      case DomainmodelPackage.PARAM__TYPE:
         return type != TYPE_EDEFAULT;
-      case DomainmodelPackage.VARIABLE__INITIAL_VALUE:
-        return initialValue != INITIAL_VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -288,10 +232,8 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
     result.append(name);
     result.append(", type: ");
     result.append(type);
-    result.append(", initialValue: ");
-    result.append(initialValue);
     result.append(')');
     return result.toString();
   }
 
-} //VariableImpl
+} //ParamImpl

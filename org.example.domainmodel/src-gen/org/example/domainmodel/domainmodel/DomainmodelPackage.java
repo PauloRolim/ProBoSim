@@ -69,7 +69,7 @@ public interface DomainmodelPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Interface</b></em>' attribute.
+   * The feature id for the '<em><b>Interface</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -78,22 +78,13 @@ public interface DomainmodelPackage extends EPackage
   int MODEL__INTERFACE = 0;
 
   /**
-   * The feature id for the '<em><b>Events</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__EVENTS = 1;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__NAME = 2;
+  int MODEL__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Cycle Def</b></em>' containment reference.
@@ -102,7 +93,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CYCLE_DEF = 3;
+  int MODEL__CYCLE_DEF = 2;
 
   /**
    * The feature id for the '<em><b>Constants</b></em>' containment reference list.
@@ -111,7 +102,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CONSTANTS = 4;
+  int MODEL__CONSTANTS = 3;
 
   /**
    * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -120,7 +111,7 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__VARIABLES = 5;
+  int MODEL__VARIABLES = 4;
 
   /**
    * The feature id for the '<em><b>Clock</b></em>' containment reference list.
@@ -129,7 +120,16 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CLOCK = 6;
+  int MODEL__CLOCK = 5;
+
+  /**
+   * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__CONTEXTS = 6;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -141,14 +141,14 @@ public interface DomainmodelPackage extends EPackage
   int MODEL_FEATURE_COUNT = 7;
 
   /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.VariableImpl <em>Variable</em>}' class.
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl <em>Interface</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.VariableImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getVariable()
+   * @see org.example.domainmodel.domainmodel.impl.InterfaceImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getInterface()
    * @generated
    */
-  int VARIABLE = 1;
+  int INTERFACE = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -157,7 +157,118 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE__NAME = 0;
+  int INTERFACE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__OPERATIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Events</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__EVENTS = 2;
+
+  /**
+   * The number of structural features of the '<em>Interface</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.OperationDeclImpl <em>Operation Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.example.domainmodel.domainmodel.impl.OperationDeclImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getOperationDecl()
+   * @generated
+   */
+  int OPERATION_DECL = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_DECL__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_DECL__PARAMS = 1;
+
+  /**
+   * The number of structural features of the '<em>Operation Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_DECL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.EventDeclImpl <em>Event Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.example.domainmodel.domainmodel.impl.EventDeclImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getEventDecl()
+   * @generated
+   */
+  int EVENT_DECL = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_DECL__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Event Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT_DECL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.ParamImpl <em>Param</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.example.domainmodel.domainmodel.impl.ParamImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getParam()
+   * @generated
+   */
+  int PARAM = 4;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAM__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -166,25 +277,71 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE__TYPE = 1;
+  int PARAM__TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Initial Value</b></em>' containment reference.
+   * The number of structural features of the '<em>Param</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE__INITIAL_VALUE = 2;
+  int PARAM_FEATURE_COUNT = 2;
 
   /**
-   * The number of structural features of the '<em>Variable</em>' class.
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.ContextDeclImpl <em>Context Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.example.domainmodel.domainmodel.impl.ContextDeclImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getContextDecl()
+   * @generated
+   */
+  int CONTEXT_DECL = 5;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VARIABLE_FEATURE_COUNT = 3;
+  int CONTEXT_DECL__KIND = 0;
+
+  /**
+   * The feature id for the '<em><b>Used Interfaces</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DECL__USED_INTERFACES = 1;
+
+  /**
+   * The feature id for the '<em><b>Ops</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DECL__OPS = 2;
+
+  /**
+   * The feature id for the '<em><b>Events</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DECL__EVENTS = 3;
+
+  /**
+   * The number of structural features of the '<em>Context Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DECL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.ConstantImpl <em>Constant</em>}' class.
@@ -194,7 +351,7 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 2;
+  int CONSTANT = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -224,32 +381,50 @@ public interface DomainmodelPackage extends EPackage
   int CONSTANT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.CycleDefImpl <em>Cycle Def</em>}' class.
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.VariableImpl <em>Variable</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.CycleDefImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getCycleDef()
+   * @see org.example.domainmodel.domainmodel.impl.VariableImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getVariable()
    * @generated
    */
-  int CYCLE_DEF = 3;
+  int VARIABLE = 7;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYCLE_DEF__VALUE = 0;
+  int VARIABLE__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Cycle Def</em>' class.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CYCLE_DEF_FEATURE_COUNT = 1;
+  int VARIABLE__TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Initial Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__INITIAL_VALUE = 2;
+
+  /**
+   * The number of structural features of the '<em>Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.ClockImpl <em>Clock</em>}' class.
@@ -259,7 +434,7 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getClock()
    * @generated
    */
-  int CLOCK = 4;
+  int CLOCK = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -289,79 +464,14 @@ public interface DomainmodelPackage extends EPackage
   int CLOCK_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl <em>Interface</em>}' class.
+   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.CycleDefImpl <em>Cycle Def</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.InterfaceImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getInterface()
+   * @see org.example.domainmodel.domainmodel.impl.CycleDefImpl
+   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getCycleDef()
    * @generated
    */
-  int INTERFACE = 5;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTERFACE__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Events</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTERFACE__EVENTS = 1;
-
-  /**
-   * The number of structural features of the '<em>Interface</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTERFACE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.EventDeclImpl <em>Event Decl</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.EventDeclImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getEventDecl()
-   * @generated
-   */
-  int EVENT_DECL = 6;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT_DECL__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Event Decl</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT_DECL_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.example.domainmodel.domainmodel.impl.ValueImpl <em>Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.example.domainmodel.domainmodel.impl.ValueImpl
-   * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getValue()
-   * @generated
-   */
-  int VALUE = 7;
+  int CYCLE_DEF = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -370,16 +480,16 @@ public interface DomainmodelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE__VALUE = 0;
+  int CYCLE_DEF__VALUE = 0;
 
   /**
-   * The number of structural features of the '<em>Value</em>' class.
+   * The number of structural features of the '<em>Cycle Def</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VALUE_FEATURE_COUNT = 1;
+  int CYCLE_DEF_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.example.domainmodel.domainmodel.DataType <em>Data Type</em>}' enum.
@@ -389,7 +499,7 @@ public interface DomainmodelPackage extends EPackage
    * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 8;
+  int DATA_TYPE = 10;
 
 
   /**
@@ -403,26 +513,15 @@ public interface DomainmodelPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Model#getInterface <em>Interface</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Model#getInterface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Interface</em>'.
+   * @return the meta object for the containment reference list '<em>Interface</em>'.
    * @see org.example.domainmodel.domainmodel.Model#getInterface()
    * @see #getModel()
    * @generated
    */
-  EAttribute getModel_Interface();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Model#getEvents <em>Events</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Events</em>'.
-   * @see org.example.domainmodel.domainmodel.Model#getEvents()
-   * @see #getModel()
-   * @generated
-   */
-  EReference getModel_Events();
+  EReference getModel_Interface();
 
   /**
    * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Model#getName <em>Name</em>}'.
@@ -480,47 +579,197 @@ public interface DomainmodelPackage extends EPackage
   EReference getModel_Clock();
 
   /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Variable <em>Variable</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Model#getContexts <em>Contexts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Variable</em>'.
-   * @see org.example.domainmodel.domainmodel.Variable
+   * @return the meta object for the containment reference list '<em>Contexts</em>'.
+   * @see org.example.domainmodel.domainmodel.Model#getContexts()
+   * @see #getModel()
    * @generated
    */
-  EClass getVariable();
+  EReference getModel_Contexts();
 
   /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Variable#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Interface <em>Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Interface</em>'.
+   * @see org.example.domainmodel.domainmodel.Interface
+   * @generated
+   */
+  EClass getInterface();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Interface#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.example.domainmodel.domainmodel.Variable#getName()
-   * @see #getVariable()
+   * @see org.example.domainmodel.domainmodel.Interface#getName()
+   * @see #getInterface()
    * @generated
    */
-  EAttribute getVariable_Name();
+  EAttribute getInterface_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Variable#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Interface#getOperations <em>Operations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Operations</em>'.
+   * @see org.example.domainmodel.domainmodel.Interface#getOperations()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_Operations();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Interface#getEvents <em>Events</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Events</em>'.
+   * @see org.example.domainmodel.domainmodel.Interface#getEvents()
+   * @see #getInterface()
+   * @generated
+   */
+  EReference getInterface_Events();
+
+  /**
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.OperationDecl <em>Operation Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operation Decl</em>'.
+   * @see org.example.domainmodel.domainmodel.OperationDecl
+   * @generated
+   */
+  EClass getOperationDecl();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.OperationDecl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.example.domainmodel.domainmodel.OperationDecl#getName()
+   * @see #getOperationDecl()
+   * @generated
+   */
+  EAttribute getOperationDecl_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.OperationDecl#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Params</em>'.
+   * @see org.example.domainmodel.domainmodel.OperationDecl#getParams()
+   * @see #getOperationDecl()
+   * @generated
+   */
+  EReference getOperationDecl_Params();
+
+  /**
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.EventDecl <em>Event Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Event Decl</em>'.
+   * @see org.example.domainmodel.domainmodel.EventDecl
+   * @generated
+   */
+  EClass getEventDecl();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.EventDecl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.example.domainmodel.domainmodel.EventDecl#getName()
+   * @see #getEventDecl()
+   * @generated
+   */
+  EAttribute getEventDecl_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Param <em>Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Param</em>'.
+   * @see org.example.domainmodel.domainmodel.Param
+   * @generated
+   */
+  EClass getParam();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Param#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.example.domainmodel.domainmodel.Param#getName()
+   * @see #getParam()
+   * @generated
+   */
+  EAttribute getParam_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Param#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.example.domainmodel.domainmodel.Variable#getType()
-   * @see #getVariable()
+   * @see org.example.domainmodel.domainmodel.Param#getType()
+   * @see #getParam()
    * @generated
    */
-  EAttribute getVariable_Type();
+  EAttribute getParam_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.example.domainmodel.domainmodel.Variable#getInitialValue <em>Initial Value</em>}'.
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.ContextDecl <em>Context Decl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Initial Value</em>'.
-   * @see org.example.domainmodel.domainmodel.Variable#getInitialValue()
-   * @see #getVariable()
+   * @return the meta object for class '<em>Context Decl</em>'.
+   * @see org.example.domainmodel.domainmodel.ContextDecl
    * @generated
    */
-  EReference getVariable_InitialValue();
+  EClass getContextDecl();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.ContextDecl#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Kind</em>'.
+   * @see org.example.domainmodel.domainmodel.ContextDecl#getKind()
+   * @see #getContextDecl()
+   * @generated
+   */
+  EAttribute getContextDecl_Kind();
+
+  /**
+   * Returns the meta object for the reference list '{@link org.example.domainmodel.domainmodel.ContextDecl#getUsedInterfaces <em>Used Interfaces</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Used Interfaces</em>'.
+   * @see org.example.domainmodel.domainmodel.ContextDecl#getUsedInterfaces()
+   * @see #getContextDecl()
+   * @generated
+   */
+  EReference getContextDecl_UsedInterfaces();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.ContextDecl#getOps <em>Ops</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Ops</em>'.
+   * @see org.example.domainmodel.domainmodel.ContextDecl#getOps()
+   * @see #getContextDecl()
+   * @generated
+   */
+  EReference getContextDecl_Ops();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.ContextDecl#getEvents <em>Events</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Events</em>'.
+   * @see org.example.domainmodel.domainmodel.ContextDecl#getEvents()
+   * @see #getContextDecl()
+   * @generated
+   */
+  EReference getContextDecl_Events();
 
   /**
    * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Constant <em>Constant</em>}'.
@@ -555,25 +804,47 @@ public interface DomainmodelPackage extends EPackage
   EAttribute getConstant_Type();
 
   /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.CycleDef <em>Cycle Def</em>}'.
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Variable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Cycle Def</em>'.
-   * @see org.example.domainmodel.domainmodel.CycleDef
+   * @return the meta object for class '<em>Variable</em>'.
+   * @see org.example.domainmodel.domainmodel.Variable
    * @generated
    */
-  EClass getCycleDef();
+  EClass getVariable();
 
   /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.CycleDef#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Variable#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.example.domainmodel.domainmodel.CycleDef#getValue()
-   * @see #getCycleDef()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.example.domainmodel.domainmodel.Variable#getName()
+   * @see #getVariable()
    * @generated
    */
-  EAttribute getCycleDef_Value();
+  EAttribute getVariable_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Variable#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.example.domainmodel.domainmodel.Variable#getType()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Variable#getInitialValue <em>Initial Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Initial Value</em>'.
+   * @see org.example.domainmodel.domainmodel.Variable#getInitialValue()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_InitialValue();
 
   /**
    * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Clock <em>Clock</em>}'.
@@ -608,78 +879,25 @@ public interface DomainmodelPackage extends EPackage
   EAttribute getClock_InitialValue();
 
   /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Interface <em>Interface</em>}'.
+   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.CycleDef <em>Cycle Def</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Interface</em>'.
-   * @see org.example.domainmodel.domainmodel.Interface
+   * @return the meta object for class '<em>Cycle Def</em>'.
+   * @see org.example.domainmodel.domainmodel.CycleDef
    * @generated
    */
-  EClass getInterface();
+  EClass getCycleDef();
 
   /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Interface#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.example.domainmodel.domainmodel.Interface#getName()
-   * @see #getInterface()
-   * @generated
-   */
-  EAttribute getInterface_Name();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.example.domainmodel.domainmodel.Interface#getEvents <em>Events</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Events</em>'.
-   * @see org.example.domainmodel.domainmodel.Interface#getEvents()
-   * @see #getInterface()
-   * @generated
-   */
-  EReference getInterface_Events();
-
-  /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.EventDecl <em>Event Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Event Decl</em>'.
-   * @see org.example.domainmodel.domainmodel.EventDecl
-   * @generated
-   */
-  EClass getEventDecl();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.EventDecl#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.example.domainmodel.domainmodel.EventDecl#getName()
-   * @see #getEventDecl()
-   * @generated
-   */
-  EAttribute getEventDecl_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.example.domainmodel.domainmodel.Value <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Value</em>'.
-   * @see org.example.domainmodel.domainmodel.Value
-   * @generated
-   */
-  EClass getValue();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.Value#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.example.domainmodel.domainmodel.CycleDef#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.example.domainmodel.domainmodel.Value#getValue()
-   * @see #getValue()
+   * @see org.example.domainmodel.domainmodel.CycleDef#getValue()
+   * @see #getCycleDef()
    * @generated
    */
-  EAttribute getValue_Value();
+  EAttribute getCycleDef_Value();
 
   /**
    * Returns the meta object for enum '{@link org.example.domainmodel.domainmodel.DataType <em>Data Type</em>}'.
@@ -725,20 +943,12 @@ public interface DomainmodelPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Interface</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Interface</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__INTERFACE = eINSTANCE.getModel_Interface();
-
-    /**
-     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__EVENTS = eINSTANCE.getModel_Events();
+    EReference MODEL__INTERFACE = eINSTANCE.getModel_Interface();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -781,14 +991,22 @@ public interface DomainmodelPackage extends EPackage
     EReference MODEL__CLOCK = eINSTANCE.getModel_Clock();
 
     /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.VariableImpl <em>Variable</em>}' class.
+     * The meta object literal for the '<em><b>Contexts</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.VariableImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getVariable()
      * @generated
      */
-    EClass VARIABLE = eINSTANCE.getVariable();
+    EReference MODEL__CONTEXTS = eINSTANCE.getModel_Contexts();
+
+    /**
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl <em>Interface</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.example.domainmodel.domainmodel.impl.InterfaceImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getInterface()
+     * @generated
+     */
+    EClass INTERFACE = eINSTANCE.getInterface();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -796,7 +1014,85 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
+    EAttribute INTERFACE__NAME = eINSTANCE.getInterface_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__OPERATIONS = eINSTANCE.getInterface_Operations();
+
+    /**
+     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERFACE__EVENTS = eINSTANCE.getInterface_Events();
+
+    /**
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.OperationDeclImpl <em>Operation Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.example.domainmodel.domainmodel.impl.OperationDeclImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getOperationDecl()
+     * @generated
+     */
+    EClass OPERATION_DECL = eINSTANCE.getOperationDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION_DECL__NAME = eINSTANCE.getOperationDecl_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION_DECL__PARAMS = eINSTANCE.getOperationDecl_Params();
+
+    /**
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.EventDeclImpl <em>Event Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.example.domainmodel.domainmodel.impl.EventDeclImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getEventDecl()
+     * @generated
+     */
+    EClass EVENT_DECL = eINSTANCE.getEventDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EVENT_DECL__NAME = eINSTANCE.getEventDecl_Name();
+
+    /**
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.ParamImpl <em>Param</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.example.domainmodel.domainmodel.impl.ParamImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getParam()
+     * @generated
+     */
+    EClass PARAM = eINSTANCE.getParam();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAM__NAME = eINSTANCE.getParam_Name();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -804,15 +1100,49 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARIABLE__TYPE = eINSTANCE.getVariable_Type();
+    EAttribute PARAM__TYPE = eINSTANCE.getParam_Type();
 
     /**
-     * The meta object literal for the '<em><b>Initial Value</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.ContextDeclImpl <em>Context Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.example.domainmodel.domainmodel.impl.ContextDeclImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getContextDecl()
+     * @generated
+     */
+    EClass CONTEXT_DECL = eINSTANCE.getContextDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VARIABLE__INITIAL_VALUE = eINSTANCE.getVariable_InitialValue();
+    EAttribute CONTEXT_DECL__KIND = eINSTANCE.getContextDecl_Kind();
+
+    /**
+     * The meta object literal for the '<em><b>Used Interfaces</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT_DECL__USED_INTERFACES = eINSTANCE.getContextDecl_UsedInterfaces();
+
+    /**
+     * The meta object literal for the '<em><b>Ops</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT_DECL__OPS = eINSTANCE.getContextDecl_Ops();
+
+    /**
+     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT_DECL__EVENTS = eINSTANCE.getContextDecl_Events();
 
     /**
      * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.ConstantImpl <em>Constant</em>}' class.
@@ -841,22 +1171,38 @@ public interface DomainmodelPackage extends EPackage
     EAttribute CONSTANT__TYPE = eINSTANCE.getConstant_Type();
 
     /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.CycleDefImpl <em>Cycle Def</em>}' class.
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.VariableImpl <em>Variable</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.CycleDefImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getCycleDef()
+     * @see org.example.domainmodel.domainmodel.impl.VariableImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getVariable()
      * @generated
      */
-    EClass CYCLE_DEF = eINSTANCE.getCycleDef();
+    EClass VARIABLE = eINSTANCE.getVariable();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CYCLE_DEF__VALUE = eINSTANCE.getCycleDef_Value();
+    EAttribute VARIABLE__NAME = eINSTANCE.getVariable_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__TYPE = eINSTANCE.getVariable_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__INITIAL_VALUE = eINSTANCE.getVariable_InitialValue();
 
     /**
      * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.ClockImpl <em>Clock</em>}' class.
@@ -885,58 +1231,14 @@ public interface DomainmodelPackage extends EPackage
     EAttribute CLOCK__INITIAL_VALUE = eINSTANCE.getClock_InitialValue();
 
     /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl <em>Interface</em>}' class.
+     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.CycleDefImpl <em>Cycle Def</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.InterfaceImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getInterface()
+     * @see org.example.domainmodel.domainmodel.impl.CycleDefImpl
+     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getCycleDef()
      * @generated
      */
-    EClass INTERFACE = eINSTANCE.getInterface();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INTERFACE__NAME = eINSTANCE.getInterface_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Events</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INTERFACE__EVENTS = eINSTANCE.getInterface_Events();
-
-    /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.EventDeclImpl <em>Event Decl</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.EventDeclImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getEventDecl()
-     * @generated
-     */
-    EClass EVENT_DECL = eINSTANCE.getEventDecl();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EVENT_DECL__NAME = eINSTANCE.getEventDecl_Name();
-
-    /**
-     * The meta object literal for the '{@link org.example.domainmodel.domainmodel.impl.ValueImpl <em>Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.example.domainmodel.domainmodel.impl.ValueImpl
-     * @see org.example.domainmodel.domainmodel.impl.DomainmodelPackageImpl#getValue()
-     * @generated
-     */
-    EClass VALUE = eINSTANCE.getValue();
+    EClass CYCLE_DEF = eINSTANCE.getCycleDef();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -944,7 +1246,7 @@ public interface DomainmodelPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VALUE__VALUE = eINSTANCE.getValue_Value();
+    EAttribute CYCLE_DEF__VALUE = eINSTANCE.getCycleDef_Value();
 
     /**
      * The meta object literal for the '{@link org.example.domainmodel.domainmodel.DataType <em>Data Type</em>}' enum.

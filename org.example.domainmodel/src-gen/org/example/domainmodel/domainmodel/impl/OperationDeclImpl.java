@@ -20,26 +20,24 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
-import org.example.domainmodel.domainmodel.EventDecl;
-import org.example.domainmodel.domainmodel.Interface;
 import org.example.domainmodel.domainmodel.OperationDecl;
+import org.example.domainmodel.domainmodel.Param;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Interface</b></em>'.
+ * An implementation of the model object '<em><b>Operation Decl</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl#getOperations <em>Operations</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.InterfaceImpl#getEvents <em>Events</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.OperationDeclImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.OperationDeclImpl#getParams <em>Params</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InterfaceImpl extends MinimalEObjectImpl.Container implements Interface
+public class OperationDeclImpl extends MinimalEObjectImpl.Container implements OperationDecl
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -62,31 +60,21 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperations()
+   * @see #getParams()
    * @generated
    * @ordered
    */
-  protected EList<OperationDecl> operations;
-
-  /**
-   * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEvents()
-   * @generated
-   * @ordered
-   */
-  protected EList<EventDecl> events;
+  protected EList<Param> params;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected InterfaceImpl()
+  protected OperationDeclImpl()
   {
     super();
   }
@@ -99,7 +87,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   @Override
   protected EClass eStaticClass()
   {
-    return DomainmodelPackage.Literals.INTERFACE;
+    return DomainmodelPackage.Literals.OPERATION_DECL;
   }
 
   /**
@@ -124,7 +112,7 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.INTERFACE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.OPERATION_DECL__NAME, oldName, name));
   }
 
   /**
@@ -133,28 +121,13 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
    * @generated
    */
   @Override
-  public EList<OperationDecl> getOperations()
+  public EList<Param> getParams()
   {
-    if (operations == null)
+    if (params == null)
     {
-      operations = new EObjectContainmentEList<OperationDecl>(OperationDecl.class, this, DomainmodelPackage.INTERFACE__OPERATIONS);
+      params = new EObjectContainmentEList<Param>(Param.class, this, DomainmodelPackage.OPERATION_DECL__PARAMS);
     }
-    return operations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<EventDecl> getEvents()
-  {
-    if (events == null)
-    {
-      events = new EObjectContainmentEList<EventDecl>(EventDecl.class, this, DomainmodelPackage.INTERFACE__EVENTS);
-    }
-    return events;
+    return params;
   }
 
   /**
@@ -167,10 +140,8 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        return ((InternalEList<?>)getOperations()).basicRemove(otherEnd, msgs);
-      case DomainmodelPackage.INTERFACE__EVENTS:
-        return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
+      case DomainmodelPackage.OPERATION_DECL__PARAMS:
+        return ((InternalEList<?>)getParams()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -185,12 +156,10 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
+      case DomainmodelPackage.OPERATION_DECL__NAME:
         return getName();
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        return getOperations();
-      case DomainmodelPackage.INTERFACE__EVENTS:
-        return getEvents();
+      case DomainmodelPackage.OPERATION_DECL__PARAMS:
+        return getParams();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -206,16 +175,12 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
+      case DomainmodelPackage.OPERATION_DECL__NAME:
         setName((String)newValue);
         return;
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        getOperations().clear();
-        getOperations().addAll((Collection<? extends OperationDecl>)newValue);
-        return;
-      case DomainmodelPackage.INTERFACE__EVENTS:
-        getEvents().clear();
-        getEvents().addAll((Collection<? extends EventDecl>)newValue);
+      case DomainmodelPackage.OPERATION_DECL__PARAMS:
+        getParams().clear();
+        getParams().addAll((Collection<? extends Param>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -231,14 +196,11 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
+      case DomainmodelPackage.OPERATION_DECL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        getOperations().clear();
-        return;
-      case DomainmodelPackage.INTERFACE__EVENTS:
-        getEvents().clear();
+      case DomainmodelPackage.OPERATION_DECL__PARAMS:
+        getParams().clear();
         return;
     }
     super.eUnset(featureID);
@@ -254,12 +216,10 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
   {
     switch (featureID)
     {
-      case DomainmodelPackage.INTERFACE__NAME:
+      case DomainmodelPackage.OPERATION_DECL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DomainmodelPackage.INTERFACE__OPERATIONS:
-        return operations != null && !operations.isEmpty();
-      case DomainmodelPackage.INTERFACE__EVENTS:
-        return events != null && !events.isEmpty();
+      case DomainmodelPackage.OPERATION_DECL__PARAMS:
+        return params != null && !params.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -281,4 +241,4 @@ public class InterfaceImpl extends MinimalEObjectImpl.Container implements Inter
     return result.toString();
   }
 
-} //InterfaceImpl
+} //OperationDeclImpl

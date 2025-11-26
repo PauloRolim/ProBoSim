@@ -1,6 +1,7 @@
 package org.example.domainmodel.generator
 
 import org.example.domainmodel.domainmodel.Model
+import org.example.domainmodel.domainmodel.Constant
 
 class UserCtxGenerator {
 	def static generateUserCtx(Model model)'''

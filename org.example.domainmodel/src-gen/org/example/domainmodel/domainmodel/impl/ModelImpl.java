@@ -21,9 +21,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.example.domainmodel.domainmodel.Clock;
 import org.example.domainmodel.domainmodel.Constant;
+import org.example.domainmodel.domainmodel.ContextDecl;
 import org.example.domainmodel.domainmodel.CycleDef;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
-import org.example.domainmodel.domainmodel.EventDecl;
+import org.example.domainmodel.domainmodel.Interface;
 import org.example.domainmodel.domainmodel.Model;
 import org.example.domainmodel.domainmodel.Variable;
 
@@ -36,12 +37,12 @@ import org.example.domainmodel.domainmodel.Variable;
  * </p>
  * <ul>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getInterface <em>Interface</em>}</li>
- *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getCycleDef <em>Cycle Def</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getConstants <em>Constants</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getClock <em>Clock</em>}</li>
+ *   <li>{@link org.example.domainmodel.domainmodel.impl.ModelImpl#getContexts <em>Contexts</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,34 +50,14 @@ import org.example.domainmodel.domainmodel.Variable;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The default value of the '{@link #getInterface() <em>Interface</em>}' attribute.
+   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInterface()
    * @generated
    * @ordered
    */
-  protected static final String INTERFACE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInterface()
-   * @generated
-   * @ordered
-   */
-  protected String interface_ = INTERFACE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEvents()
-   * @generated
-   * @ordered
-   */
-  protected EList<EventDecl> events;
+  protected EList<Interface> interface_;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -139,6 +120,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<Clock> clock;
 
   /**
+   * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContexts()
+   * @generated
+   * @ordered
+   */
+  protected EList<ContextDecl> contexts;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -165,38 +156,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public String getInterface()
+  public EList<Interface> getInterface()
   {
-    return interface_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setInterface(String newInterface)
-  {
-    String oldInterface = interface_;
-    interface_ = newInterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DomainmodelPackage.MODEL__INTERFACE, oldInterface, interface_));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<EventDecl> getEvents()
-  {
-    if (events == null)
+    if (interface_ == null)
     {
-      events = new EObjectContainmentEList<EventDecl>(EventDecl.class, this, DomainmodelPackage.MODEL__EVENTS);
+      interface_ = new EObjectContainmentEList<Interface>(Interface.class, this, DomainmodelPackage.MODEL__INTERFACE);
     }
-    return events;
+    return interface_;
   }
 
   /**
@@ -325,12 +291,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
+  public EList<ContextDecl> getContexts()
+  {
+    if (contexts == null)
+    {
+      contexts = new EObjectContainmentEList<ContextDecl>(ContextDecl.class, this, DomainmodelPackage.MODEL__CONTEXTS);
+    }
+    return contexts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case DomainmodelPackage.MODEL__EVENTS:
-        return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
+      case DomainmodelPackage.MODEL__INTERFACE:
+        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
       case DomainmodelPackage.MODEL__CYCLE_DEF:
         return basicSetCycleDef(null, msgs);
       case DomainmodelPackage.MODEL__CONSTANTS:
@@ -339,6 +320,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
       case DomainmodelPackage.MODEL__CLOCK:
         return ((InternalEList<?>)getClock()).basicRemove(otherEnd, msgs);
+      case DomainmodelPackage.MODEL__CONTEXTS:
+        return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -355,8 +338,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case DomainmodelPackage.MODEL__INTERFACE:
         return getInterface();
-      case DomainmodelPackage.MODEL__EVENTS:
-        return getEvents();
       case DomainmodelPackage.MODEL__NAME:
         return getName();
       case DomainmodelPackage.MODEL__CYCLE_DEF:
@@ -367,6 +348,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getVariables();
       case DomainmodelPackage.MODEL__CLOCK:
         return getClock();
+      case DomainmodelPackage.MODEL__CONTEXTS:
+        return getContexts();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -383,11 +366,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case DomainmodelPackage.MODEL__INTERFACE:
-        setInterface((String)newValue);
-        return;
-      case DomainmodelPackage.MODEL__EVENTS:
-        getEvents().clear();
-        getEvents().addAll((Collection<? extends EventDecl>)newValue);
+        getInterface().clear();
+        getInterface().addAll((Collection<? extends Interface>)newValue);
         return;
       case DomainmodelPackage.MODEL__NAME:
         setName((String)newValue);
@@ -407,6 +387,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getClock().clear();
         getClock().addAll((Collection<? extends Clock>)newValue);
         return;
+      case DomainmodelPackage.MODEL__CONTEXTS:
+        getContexts().clear();
+        getContexts().addAll((Collection<? extends ContextDecl>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -422,10 +406,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case DomainmodelPackage.MODEL__INTERFACE:
-        setInterface(INTERFACE_EDEFAULT);
-        return;
-      case DomainmodelPackage.MODEL__EVENTS:
-        getEvents().clear();
+        getInterface().clear();
         return;
       case DomainmodelPackage.MODEL__NAME:
         setName(NAME_EDEFAULT);
@@ -442,6 +423,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case DomainmodelPackage.MODEL__CLOCK:
         getClock().clear();
         return;
+      case DomainmodelPackage.MODEL__CONTEXTS:
+        getContexts().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -457,9 +441,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case DomainmodelPackage.MODEL__INTERFACE:
-        return INTERFACE_EDEFAULT == null ? interface_ != null : !INTERFACE_EDEFAULT.equals(interface_);
-      case DomainmodelPackage.MODEL__EVENTS:
-        return events != null && !events.isEmpty();
+        return interface_ != null && !interface_.isEmpty();
       case DomainmodelPackage.MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DomainmodelPackage.MODEL__CYCLE_DEF:
@@ -470,6 +452,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return variables != null && !variables.isEmpty();
       case DomainmodelPackage.MODEL__CLOCK:
         return clock != null && !clock.isEmpty();
+      case DomainmodelPackage.MODEL__CONTEXTS:
+        return contexts != null && !contexts.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -485,9 +469,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (interface: ");
-    result.append(interface_);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

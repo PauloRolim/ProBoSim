@@ -81,29 +81,14 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseVariable(Variable object)
-      {
-        return createVariableAdapter();
-      }
-      @Override
-      public Adapter caseConstant(Constant object)
-      {
-        return createConstantAdapter();
-      }
-      @Override
-      public Adapter caseCycleDef(CycleDef object)
-      {
-        return createCycleDefAdapter();
-      }
-      @Override
-      public Adapter caseClock(Clock object)
-      {
-        return createClockAdapter();
-      }
-      @Override
       public Adapter caseInterface(Interface object)
       {
         return createInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseOperationDecl(OperationDecl object)
+      {
+        return createOperationDeclAdapter();
       }
       @Override
       public Adapter caseEventDecl(EventDecl object)
@@ -111,9 +96,34 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
         return createEventDeclAdapter();
       }
       @Override
-      public Adapter caseValue(Value object)
+      public Adapter caseParam(Param object)
       {
-        return createValueAdapter();
+        return createParamAdapter();
+      }
+      @Override
+      public Adapter caseContextDecl(ContextDecl object)
+      {
+        return createContextDeclAdapter();
+      }
+      @Override
+      public Adapter caseConstant(Constant object)
+      {
+        return createConstantAdapter();
+      }
+      @Override
+      public Adapter caseVariable(Variable object)
+      {
+        return createVariableAdapter();
+      }
+      @Override
+      public Adapter caseClock(Clock object)
+      {
+        return createClockAdapter();
+      }
+      @Override
+      public Adapter caseCycleDef(CycleDef object)
+      {
+        return createCycleDefAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -153,66 +163,6 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Variable <em>Variable</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Variable
-   * @generated
-   */
-  public Adapter createVariableAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Constant <em>Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Constant
-   * @generated
-   */
-  public Adapter createConstantAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.CycleDef <em>Cycle Def</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.CycleDef
-   * @generated
-   */
-  public Adapter createCycleDefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Clock <em>Clock</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Clock
-   * @generated
-   */
-  public Adapter createClockAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Interface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -223,6 +173,21 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.OperationDecl <em>Operation Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.OperationDecl
+   * @generated
+   */
+  public Adapter createOperationDeclAdapter()
   {
     return null;
   }
@@ -243,16 +208,91 @@ public class DomainmodelAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Value <em>Value</em>}'.
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Param <em>Param</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.example.domainmodel.domainmodel.Value
+   * @see org.example.domainmodel.domainmodel.Param
    * @generated
    */
-  public Adapter createValueAdapter()
+  public Adapter createParamAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.ContextDecl <em>Context Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.ContextDecl
+   * @generated
+   */
+  public Adapter createContextDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Constant <em>Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.Constant
+   * @generated
+   */
+  public Adapter createConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.Variable
+   * @generated
+   */
+  public Adapter createVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.Clock <em>Clock</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.Clock
+   * @generated
+   */
+  public Adapter createClockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.example.domainmodel.domainmodel.CycleDef <em>Cycle Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.example.domainmodel.domainmodel.CycleDef
+   * @generated
+   */
+  public Adapter createCycleDefAdapter()
   {
     return null;
   }

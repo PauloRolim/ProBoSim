@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.example.domainmodel.domainmodel.Clock;
 import org.example.domainmodel.domainmodel.Constant;
+import org.example.domainmodel.domainmodel.ContextDecl;
 import org.example.domainmodel.domainmodel.CycleDef;
 import org.example.domainmodel.domainmodel.DataType;
 import org.example.domainmodel.domainmodel.DomainmodelFactory;
@@ -20,7 +21,8 @@ import org.example.domainmodel.domainmodel.DomainmodelPackage;
 import org.example.domainmodel.domainmodel.EventDecl;
 import org.example.domainmodel.domainmodel.Interface;
 import org.example.domainmodel.domainmodel.Model;
-import org.example.domainmodel.domainmodel.Value;
+import org.example.domainmodel.domainmodel.OperationDecl;
+import org.example.domainmodel.domainmodel.Param;
 import org.example.domainmodel.domainmodel.Variable;
 
 /**
@@ -43,35 +45,14 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass variableEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass constantEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass cycleDefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass clockEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass interfaceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass operationDeclEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,7 +66,42 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass valueEClass = null;
+  private EClass paramEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextDeclEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass constantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass clockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cycleDefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -173,20 +189,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getModel_Interface()
+  public EReference getModel_Interface()
   {
-    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getModel_Events()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -197,7 +202,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   @Override
   public EAttribute getModel_Name()
   {
-    return (EAttribute)modelEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -208,7 +213,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   @Override
   public EReference getModel_CycleDef()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -219,7 +224,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   @Override
   public EReference getModel_Constants()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(4);
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -230,7 +235,7 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   @Override
   public EReference getModel_Variables()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(5);
+    return (EReference)modelEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -241,6 +246,17 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
   @Override
   public EReference getModel_Clock()
   {
+    return (EReference)modelEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Contexts()
+  {
     return (EReference)modelEClass.getEStructuralFeatures().get(6);
   }
 
@@ -250,9 +266,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getVariable()
+  public EClass getInterface()
   {
-    return variableEClass;
+    return interfaceEClass;
   }
 
   /**
@@ -261,9 +277,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getVariable_Name()
+  public EAttribute getInterface_Name()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -272,9 +288,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getVariable_Type()
+  public EReference getInterface_Operations()
   {
-    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+    return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -283,9 +299,152 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EReference getVariable_InitialValue()
+  public EReference getInterface_Events()
   {
-    return (EReference)variableEClass.getEStructuralFeatures().get(2);
+    return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOperationDecl()
+  {
+    return operationDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOperationDecl_Name()
+  {
+    return (EAttribute)operationDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOperationDecl_Params()
+  {
+    return (EReference)operationDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getEventDecl()
+  {
+    return eventDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getEventDecl_Name()
+  {
+    return (EAttribute)eventDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getParam()
+  {
+    return paramEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParam_Name()
+  {
+    return (EAttribute)paramEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getParam_Type()
+  {
+    return (EAttribute)paramEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getContextDecl()
+  {
+    return contextDeclEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContextDecl_Kind()
+  {
+    return (EAttribute)contextDeclEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContextDecl_UsedInterfaces()
+  {
+    return (EReference)contextDeclEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContextDecl_Ops()
+  {
+    return (EReference)contextDeclEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContextDecl_Events()
+  {
+    return (EReference)contextDeclEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -327,9 +486,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getCycleDef()
+  public EClass getVariable()
   {
-    return cycleDefEClass;
+    return variableEClass;
   }
 
   /**
@@ -338,9 +497,31 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getCycleDef_Value()
+  public EAttribute getVariable_Name()
   {
-    return (EAttribute)cycleDefEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVariable_Type()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVariable_InitialValue()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -382,9 +563,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EClass getInterface()
+  public EClass getCycleDef()
   {
-    return interfaceEClass;
+    return cycleDefEClass;
   }
 
   /**
@@ -393,64 +574,9 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
    * @generated
    */
   @Override
-  public EAttribute getInterface_Name()
+  public EAttribute getCycleDef_Value()
   {
-    return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getInterface_Events()
-  {
-    return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getEventDecl()
-  {
-    return eventDeclEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getEventDecl_Name()
-  {
-    return (EAttribute)eventDeclEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getValue()
-  {
-    return valueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getValue_Value()
-  {
-    return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)cycleDefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -496,39 +622,51 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEAttribute(modelEClass, MODEL__INTERFACE);
-    createEReference(modelEClass, MODEL__EVENTS);
+    createEReference(modelEClass, MODEL__INTERFACE);
     createEAttribute(modelEClass, MODEL__NAME);
     createEReference(modelEClass, MODEL__CYCLE_DEF);
     createEReference(modelEClass, MODEL__CONSTANTS);
     createEReference(modelEClass, MODEL__VARIABLES);
     createEReference(modelEClass, MODEL__CLOCK);
+    createEReference(modelEClass, MODEL__CONTEXTS);
 
-    variableEClass = createEClass(VARIABLE);
-    createEAttribute(variableEClass, VARIABLE__NAME);
-    createEAttribute(variableEClass, VARIABLE__TYPE);
-    createEReference(variableEClass, VARIABLE__INITIAL_VALUE);
+    interfaceEClass = createEClass(INTERFACE);
+    createEAttribute(interfaceEClass, INTERFACE__NAME);
+    createEReference(interfaceEClass, INTERFACE__OPERATIONS);
+    createEReference(interfaceEClass, INTERFACE__EVENTS);
+
+    operationDeclEClass = createEClass(OPERATION_DECL);
+    createEAttribute(operationDeclEClass, OPERATION_DECL__NAME);
+    createEReference(operationDeclEClass, OPERATION_DECL__PARAMS);
+
+    eventDeclEClass = createEClass(EVENT_DECL);
+    createEAttribute(eventDeclEClass, EVENT_DECL__NAME);
+
+    paramEClass = createEClass(PARAM);
+    createEAttribute(paramEClass, PARAM__NAME);
+    createEAttribute(paramEClass, PARAM__TYPE);
+
+    contextDeclEClass = createEClass(CONTEXT_DECL);
+    createEAttribute(contextDeclEClass, CONTEXT_DECL__KIND);
+    createEReference(contextDeclEClass, CONTEXT_DECL__USED_INTERFACES);
+    createEReference(contextDeclEClass, CONTEXT_DECL__OPS);
+    createEReference(contextDeclEClass, CONTEXT_DECL__EVENTS);
 
     constantEClass = createEClass(CONSTANT);
     createEAttribute(constantEClass, CONSTANT__NAME);
     createEAttribute(constantEClass, CONSTANT__TYPE);
 
-    cycleDefEClass = createEClass(CYCLE_DEF);
-    createEAttribute(cycleDefEClass, CYCLE_DEF__VALUE);
+    variableEClass = createEClass(VARIABLE);
+    createEAttribute(variableEClass, VARIABLE__NAME);
+    createEAttribute(variableEClass, VARIABLE__TYPE);
+    createEAttribute(variableEClass, VARIABLE__INITIAL_VALUE);
 
     clockEClass = createEClass(CLOCK);
     createEAttribute(clockEClass, CLOCK__NAME);
     createEAttribute(clockEClass, CLOCK__INITIAL_VALUE);
 
-    interfaceEClass = createEClass(INTERFACE);
-    createEAttribute(interfaceEClass, INTERFACE__NAME);
-    createEReference(interfaceEClass, INTERFACE__EVENTS);
-
-    eventDeclEClass = createEClass(EVENT_DECL);
-    createEAttribute(eventDeclEClass, EVENT_DECL__NAME);
-
-    valueEClass = createEClass(VALUE);
-    createEAttribute(valueEClass, VALUE__VALUE);
+    cycleDefEClass = createEClass(CYCLE_DEF);
+    createEAttribute(cycleDefEClass, CYCLE_DEF__VALUE);
 
     // Create enums
     dataTypeEEnum = createEEnum(DATA_TYPE);
@@ -566,39 +704,51 @@ public class DomainmodelPackageImpl extends EPackageImpl implements DomainmodelP
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModel_Interface(), ecorePackage.getEString(), "interface", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Events(), this.getEventDecl(), null, "events", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Interface(), this.getInterface(), null, "interface", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_CycleDef(), this.getCycleDef(), null, "cycleDef", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Constants(), this.getConstant(), null, "constants", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Variables(), this.getVariable(), null, "variables", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Clock(), this.getClock(), null, "clock", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Contexts(), this.getContextDecl(), null, "contexts", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getVariable_Type(), this.getDataType(), "type", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getVariable_InitialValue(), this.getValue(), null, "initialValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Operations(), this.getOperationDecl(), null, "operations", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Events(), this.getEventDecl(), null, "events", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(operationDeclEClass, OperationDecl.class, "OperationDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperationDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, OperationDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperationDecl_Params(), this.getParam(), null, "params", null, 0, -1, OperationDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(eventDeclEClass, EventDecl.class, "EventDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEventDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, EventDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(paramEClass, Param.class, "Param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParam_Name(), ecorePackage.getEString(), "name", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParam_Type(), this.getDataType(), "type", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextDeclEClass, ContextDecl.class, "ContextDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContextDecl_Kind(), ecorePackage.getEString(), "kind", null, 0, 1, ContextDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextDecl_UsedInterfaces(), this.getInterface(), null, "usedInterfaces", null, 0, -1, ContextDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextDecl_Ops(), this.getOperationDecl(), null, "ops", null, 0, -1, ContextDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContextDecl_Events(), this.getEventDecl(), null, "events", null, 0, -1, ContextDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConstant_Name(), ecorePackage.getEString(), "name", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConstant_Type(), this.getDataType(), "type", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(cycleDefEClass, CycleDef.class, "CycleDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCycleDef_Value(), ecorePackage.getEInt(), "value", null, 0, 1, CycleDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_Type(), this.getDataType(), "type", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVariable_InitialValue(), ecorePackage.getEInt(), "initialValue", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clockEClass, Clock.class, "Clock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClock_Name(), ecorePackage.getEString(), "name", null, 0, 1, Clock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClock_InitialValue(), ecorePackage.getEInt(), "initialValue", null, 0, 1, Clock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInterface_Events(), this.getEventDecl(), null, "events", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(eventDeclEClass, EventDecl.class, "EventDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEventDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, EventDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(cycleDefEClass, CycleDef.class, "CycleDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCycleDef_Value(), ecorePackage.getEInt(), "value", null, 0, 1, CycleDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(dataTypeEEnum, DataType.class, "DataType");

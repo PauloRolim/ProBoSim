@@ -7,6 +7,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.example.domainmodel.domainmodel.CycleDef;
 import org.example.domainmodel.domainmodel.DomainmodelPackage;
+import org.example.domainmodel.domainmodel.Interface;
 import org.example.domainmodel.domainmodel.Model;
 
 @SuppressWarnings("all")
@@ -25,11 +26,21 @@ public class RoboSimmodelValidator extends AbstractDomainmodelValidator {
   @Check
   public void checkCycleDefValue(final CycleDef cycleDef) {
     int _value = cycleDef.getValue();
-    boolean _lessEqualsThan = (_value <= 0);
-    if (_lessEqualsThan) {
+    boolean _equals = (_value == 0);
+    if (_equals) {
       this.error(
         "O valor do ciclo deve ser um número natural positivo (maior que zero).", 
         DomainmodelPackage.Literals.CYCLE_DEF__VALUE);
+    }
+  }
+  
+  @Check
+  public void checkAtLeastOneEvent(final Interface i) {
+    boolean _isEmpty = i.getEvents().isEmpty();
+    if (_isEmpty) {
+      this.warning(
+        "A interface deve definir pelo menos um evento.", 
+        DomainmodelPackage.Literals.INTERFACE__EVENTS);
     }
   }
 }
