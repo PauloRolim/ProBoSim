@@ -42,7 +42,7 @@ class TextGenerator {
  			«FOR iface : i.operations SEPARATOR ", " AFTER ", "»o_«iface.name»_linear«ENDFOR»	
  		«ENDFOR»
  		«FOR i : model.interface»
- 		 			«FOR iface : i.operations SEPARATOR ", "»o_«iface.name»_angular«ENDFOR»	
+ 		 	«FOR iface : i.operations SEPARATOR ", "»o_«iface.name»_angular«ENDFOR»	
  		«ENDFOR»
  		«FOR p : model.variables SEPARATOR " , "»
  		     var_«p.name»_«"\n"»

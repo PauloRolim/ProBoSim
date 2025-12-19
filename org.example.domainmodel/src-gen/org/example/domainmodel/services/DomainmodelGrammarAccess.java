@@ -46,7 +46,7 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cContextsContextDeclParserRuleCall_8_0 = (RuleCall)cContextsAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		////Modelo RoboSim
+		//// Modelo RoboSim
 		//Model:
 		//    interface+=Interface*
 		//    'stm' name=ID '{'
@@ -652,7 +652,7 @@ public class DomainmodelGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 
 	
-	////Modelo RoboSim
+	//// Modelo RoboSim
 	//Model:
 	//    interface+=Interface*
 	//    'stm' name=ID '{'

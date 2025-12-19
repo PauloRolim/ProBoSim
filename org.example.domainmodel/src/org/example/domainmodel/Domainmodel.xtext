@@ -2,7 +2,8 @@ grammar org.example.domainmodel.Domainmodel with org.eclipse.xtext.common.Termin
 
 generate domainmodel "http://www.example.org/domainmodel/Domainmodel"
 
-//Modelo RoboSim
+// Modelo RoboSim
+
 Model:	 
 	interface+=Interface* 	
 	'stm' name=ID '{'
